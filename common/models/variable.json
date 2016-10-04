@@ -1,0 +1,24 @@
+{
+  "name": "Variable",
+  "plural": "variables",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "weight": {
+      "type": "number"
+    },
+    "create_time": {
+      "type": "date"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
