@@ -2,15 +2,5 @@
   "db": {
     "name": "db",
     "connector": "memory"
-  },
-  "sistemaexperto": {
-    "host": "localhost",
-    "port": 27017,
-    "url": "",
-    "database": "sistemaexperto",
-    "password": "",
-    "name": "sistemaexperto",
-    "user": "",
-    "connector": "mysql"
   }
 }

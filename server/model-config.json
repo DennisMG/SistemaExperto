@@ -33,11 +33,11 @@
     "public": false
   },
   "Investigation": {
-    "dataSource": "sistemaexperto",
+    "dataSource": "db",
     "public": true
   },
   "Variable": {
-    "dataSource": "sistemaexperto",
+    "dataSource": "db",
     "public": true
   }
 }
