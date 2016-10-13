@@ -12,6 +12,18 @@
     },
     "create_time": {
       "type": "date"
+    },
+    "description": {
+      "type": "string"
+    },
+    "website": {
+      "type": "string"
+    },
+    "frontcoverphoto": {
+      "type": "Buffer"
+    },
+    "profilephoto": {
+      "type": "Buffer"
     }
   },
   "validations": [],
