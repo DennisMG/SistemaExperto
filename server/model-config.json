@@ -14,11 +14,12 @@
     ]
   },
   "User": {
-    "dataSource": "db"
+    "dataSource": "db",
+    "public": false
   },
   "AccessToken": {
     "dataSource": "db",
-    "public": false
+    "public": true
   },
   "ACL": {
     "dataSource": "db",
@@ -37,6 +38,10 @@
     "public": true
   },
   "Variable": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Investigator": {
     "dataSource": "db",
     "public": true
   }
