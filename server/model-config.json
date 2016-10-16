@@ -19,7 +19,7 @@
   },
   "AccessToken": {
     "dataSource": "db",
-    "public": true
+    "public": false
   },
   "ACL": {
     "dataSource": "db",
@@ -41,7 +41,7 @@
     "dataSource": "db",
     "public": true
   },
-  "Investigator": {
+  "Account": {
     "dataSource": "db",
     "public": true
   }
