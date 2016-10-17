@@ -10,12 +10,10 @@
     "name": {
       "type": "string",
       "required": true
-
     },
     "weight": {
-      "type": "number", 
+      "type": "number",
       "required": true
-
     },
     "create_time": {
       "type": "date"

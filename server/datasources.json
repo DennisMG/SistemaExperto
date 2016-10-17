@@ -2,5 +2,22 @@
   "db": {
     "name": "db",
     "connector": "memory"
+  },
+  "EmailDatasource": {
+    "name": "EmailDatasource",
+    "connector": "mail",
+    "transports": [{
+      "type": "smtp",
+      "host": "smtp.private.com",
+      "secure": false,
+      "port": 587,
+      "tls": {
+        "rejectUnauthorized": false
+      },
+      "auth": {
+        "user": "me@private.com",
+        "pass": "password"
+      }
+    }]
   }
 }
