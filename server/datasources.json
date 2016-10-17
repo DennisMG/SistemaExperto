@@ -7,16 +7,16 @@
     "name": "EmailDatasource",
     "connector": "mail",
     "transports": [{
-      "type": "smtp",
-      "host": "smtp.private.com",
-      "secure": false,
-      "port": 587,
+      "type": "SMTP",
+      "host": "smtp.gmail.com",
+      "secure": true,
+      "port": 465,
       "tls": {
         "rejectUnauthorized": false
       },
       "auth": {
-        "user": "me@private.com",
-        "pass": "password"
+        "user": "youremail@gmail.com",
+        "pass": "yourpassword"
       }
     }]
   }

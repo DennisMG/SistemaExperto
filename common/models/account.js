@@ -13,23 +13,34 @@ module.exports = function(Account) {
       to: userInstance.email,
       from: 'noreply@loopback.com',
       subject: 'Thanks for registering.',
-      template: path.resolve('Proyecto\ de\ Graduacion/SistemaExperto', '../../server/views/verify.ejs'),
+      template: path.resolve('Documents/Git','../../server/views/verify.ejs'), ///Cambiar el primer parametro de resolve por tu path
       redirect: '/verified',
       user: Account
     };
 
-    userInstance.verify(options, function(err, response, next) {
-      if (err) return next(err);
+
+
+    userInstance.verify(options, function(err, response) {
+    	console.log( err );
+    	console.log( response );
+    	console.log( next );
+      
+      if (err) {
+        Account.deleteById(userInstance.id);
+        return next(err);
+      }
 
       console.log('> verification email sent:', response);
 
-      context.res.render('response', {
-        title: 'Signed up successfully',
-        content: 'Please check your email and click on the verification link ' -
-            'before logging in.',
-        redirectTo: '/',
-        redirectToLinkText: 'Log in'
-      });
+
+      ////////Esta parte es la que crashea!////////////////
+      // context.res.render('response', {
+      //   title: 'Signed up successfully',
+      //   content: 'Please check your email and click on the verification link ' -
+      //       'before logging in.',
+      //   redirectTo: '/',
+      //   redirectToLinkText: 'Log in'
+      // });
     });
   });
 
