@@ -13,7 +13,7 @@ module.exports = function(Account) {
       to: userInstance.email,
       from: 'noreply@loopback.com',
       subject: 'Thanks for registering.',
-      template: path.resolve("/", '../../server/views/verify.ejs'),
+      template: path.resolve('Proyecto\ de\ Graduacion/SistemaExperto', '../../server/views/verify.ejs'),
       redirect: '/verified',
       user: Account
     };
