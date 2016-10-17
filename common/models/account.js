@@ -1,5 +1,7 @@
 'use strict';
-
+var config = require('../../server/config.json');
+var path = require('path');
+//{"email":"dennismolina.17@gmail.com","password":"123"}
 module.exports = function(Account) {
 
 	//send verification email after registration
