@@ -17,6 +17,8 @@ module.exports = function(Account) {
       redirect: '/verified',
       verifyHref: 'http://0.0.0.0:3000/api/Accounts/confirm?uid='+userInstance.id+'&redirect=https://www.google.com',
       user: Account,
+      text: '{href}'
+
 
     };
 
