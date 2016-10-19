@@ -11,11 +11,13 @@ module.exports = function(Account) {
     var options = {
       type: 'email',
       to: userInstance.email,
-      from: 'noreply@loopback.com',
+      from: 'noreply@sistemaexperto.com',
       subject: 'Thanks for registering.',
-      template: path.resolve('Documents/Git','../../server/views/verify.ejs'), ///Cambiar el primer parametro de resolve por tu path
+      template: path.resolve(__dirname,'../../server/views/verify.ejs'), ///Cambiar el primer parametro de resolve por tu path
       redirect: '/verified',
-      user: Account
+      verifyHref: 'http://0.0.0.0:3000/api/Accounts/confirm?uid='+userInstance.id+'&redirect=https://www.google.com',
+      user: Account,
+
     };
 
 
@@ -32,7 +34,7 @@ module.exports = function(Account) {
 
       console.log('> verification email sent:', response);
 
-
+      return {name:"Manuel", apellido:"salguero"};
       ////////Esta parte es la que crashea!////////////////
       // context.res.render('response', {
       //   title: 'Signed up successfully',
