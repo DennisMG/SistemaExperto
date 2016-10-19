@@ -50,5 +50,13 @@
   },
   "Email": {
     "dataSource": "EmailDatasource"
+  },
+  "Expert": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Poll": {
+    "dataSource": "db",
+    "public": true
   }
 }

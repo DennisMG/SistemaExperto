@@ -1,22 +1,18 @@
 {
-  "name": "Variable",
-  "plural": "variables",
+  "name": "Poll",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
-    "name": {
-      "type": "string",
-      "required": true
+    "questions": {
+      "type": [
+        "string"
+      ]
     },
-    "weight": {
-      "type": "number",
-      "required": true
-    },
-    "create_time": {
-      "type": "date"
+    "description": {
+      "type": "string"
     }
   },
   "validations": [],

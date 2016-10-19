@@ -6,18 +6,20 @@
   "EmailDatasource": {
     "name": "EmailDatasource",
     "connector": "mail",
-    "transports": [{
-      "type": "SMTP",
-      "host": "smtp.gmail.com",
-      "secure": true,
-      "port": 465,
-      "tls": {
-        "rejectUnauthorized": false
-      },
-      "auth": {
-        "user": "sistemaexpertounitec@gmail.com",
-        "pass": "sistemaexperto123"
+    "transports": [
+      {
+        "type": "SMTP",
+        "host": "smtp.gmail.com",
+        "secure": true,
+        "port": 465,
+        "tls": {
+          "rejectUnauthorized": false
+        },
+        "auth": {
+          "user": "sistemaexpertounitec@gmail.com",
+          "pass": "sistemaexperto123"
+        }
       }
-    }]
+    ]
   }
 }
