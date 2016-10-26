@@ -15,7 +15,7 @@ module.exports = function(Account) {
       subject: 'Thanks for registering.',
       template: path.resolve(__dirname,'../../server/views/verify.ejs'), ///Cambiar el primer parametro de resolve por tu path
       redirect: '/verified',
-      verifyHref: 'http://0.0.0.0:3000/api/Accounts/confirm?uid='+userInstance.id+'&redirect=https://www.google.com',
+      verifyHref: 'http://localhost:3000/api/Accounts/confirm?uid='+userInstance.id+'&redirect=http://localhost:8888',
       user: Account,
       text: '{href}'
 
