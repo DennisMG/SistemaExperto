@@ -11,6 +11,9 @@
       "type": "string",
       "required": true
     },
+    "description": {
+      "type": "string"
+    },
     "weight": {
       "type": "number",
       "required": true

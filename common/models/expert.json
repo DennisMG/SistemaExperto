@@ -12,6 +12,22 @@
     "email": {
       "type": "string",
       "required": true
+    },
+    "field": {
+      "type": "string"
+    },
+    "job_position": {
+      "type": "string"
+    },
+    "years_experience": {
+      "type": "number"
+    },
+    "send_poll":{
+      "type": "boolean",
+      "required": true
+    },
+    "filled_poll":{
+      "type": "boolean"
     }
   },
   "validations": [],
