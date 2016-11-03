@@ -13,6 +13,12 @@
     },
     "description": {
       "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "instructions": {
+      "type": "string"
     }
   },
   "validations": [],

@@ -36,7 +36,11 @@ module.exports = function(Account) {
 
       console.log('> verification email sent:', response);
 
-      return {name:"Manuel", apellido:"salguero"};
+      context.result = {
+        data: {name:"Manuel", apellido:"salguero"}
+      };
+
+      next();
       ////////Esta parte es la que crashea!////////////////
       // context.res.render('response', {
       //   title: 'Signed up successfully',
