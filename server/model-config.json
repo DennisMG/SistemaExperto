@@ -14,35 +14,35 @@
     ]
   },
   "User": {
-    "dataSource": "db",
+    "dataSource": "SistemaExpertoDB",
     "public": false
   },
   "AccessToken": {
-    "dataSource": "db",
+    "dataSource": "SistemaExpertoDB",
     "public": false
   },
   "ACL": {
-    "dataSource": "db",
+    "dataSource": "SistemaExpertoDB",
     "public": false
   },
   "RoleMapping": {
-    "dataSource": "db",
+    "dataSource": "SistemaExpertoDB",
     "public": false
   },
   "Role": {
-    "dataSource": "db",
+    "dataSource": "SistemaExpertoDB",
     "public": false
   },
   "Investigation": {
-    "dataSource": "db",
+    "dataSource": "SistemaExpertoDB",
     "public": true
   },
   "Variable": {
-    "dataSource": "db",
+    "dataSource": "SistemaExpertoDB",
     "public": true
   },
   "Account": {
-    "dataSource": "db",
+    "dataSource": "SistemaExpertoDB",
     "public": true,
     "options": {
       "emailVerificationRequired": true
@@ -52,11 +52,11 @@
     "dataSource": "EmailDatasource"
   },
   "Expert": {
-    "dataSource": "db",
+    "dataSource": "SistemaExpertoDB",
     "public": true
   },
   "Poll": {
-    "dataSource": "db",
+    "dataSource": "SistemaExpertoDB",
     "public": true
   }
 }
