@@ -22,7 +22,14 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "experts": {
+      "type": "hasMany",
+      "model": "Expert",
+      "foreignKey": "pollId",
+      "through": "Result"
+    }
+  },
   "acls": [
     {
       "accessType": "*",

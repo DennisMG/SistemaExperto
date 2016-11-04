@@ -14,7 +14,18 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "expert": {
+      "type": "belongsTo",
+      "model": "Expert",
+      "foreignKey": "expertId"
+    },
+    "poll": {
+      "type": "belongsTo",
+      "model": "Poll",
+      "foreignKey": "pollId"
+    }
+  },
   "acls": [],
   "methods": {}
 }

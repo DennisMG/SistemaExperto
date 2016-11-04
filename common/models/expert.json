@@ -31,7 +31,14 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "polls": {
+      "type": "hasMany",
+      "model": "Poll",
+      "foreignKey": "expertId",
+      "through": "Result"
+    }
+  },
   "acls": [
     {
       "accessType": "*",
