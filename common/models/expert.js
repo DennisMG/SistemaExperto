@@ -8,7 +8,9 @@ module.exports = function(Expert) {
   Expert.afterRemote('create', function(context, expertInstance, next) {
   	console.log(expertInstance);
 
-  	 var myMessage = {heading:"Hi, ", text:"We are happy to have you on board."}; 
+  	 var emailData = {
+      url_poll:"www.google.com"
+    }; 
 
     // prepare a loopback template renderer
     var renderer = loopback.template(path.resolve(__dirname, '../../server/views/pollInvitation.ejs'));
@@ -19,7 +21,7 @@ module.exports = function(Expert) {
       to: expertInstance.email,
       from: 'noreply@sistemaexperto.com',
       subject: 'Encuesta desde Sistema Experto.',
-      hmtl: html_body
+      html: html_body,
     };
 
     if(expertInstance.send_poll){
