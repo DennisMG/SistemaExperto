@@ -4,28 +4,28 @@ var path = require('path');
 var loopback = require("loopback");
 
 module.exports = function(Poll) {
-	Poll.sendEmails = function(pollId, cb){
+	Poll.sendEmails = function(id, cb){
 		var experts = Poll.find({
 			include: 'experts',
 			where:{
-				id: pollId
+				id: id
 			}
 		},(err, results)=>{
 			if(err) return cb(err);
 
 
-			var emailData = {
-		      url_poll:"www.google.com",
-		      test:''
-		    }; 
-
-		    var renderer = loopback.template(path.resolve(__dirname, '../../server/views/pollInvitation.ejs'));
-		    var html_body = renderer(emailData);
+			
 
 
 		    var experts = results[0].experts();
 
 		    experts.forEach((expert,index)=>{
+		    	var emailData = {
+			      url_poll:"http://www.algo.com/fill-poll/"+id+"/expert/"+expert.id
+			    }; 
+
+			    var renderer = loopback.template(path.resolve(__dirname, '../../server/views/pollInvitation.ejs'));
+			    var html_body = renderer(emailData);
 		    	var options = {
 			      type: 'email',
 			      to: expert.email,
@@ -39,14 +39,14 @@ module.exports = function(Poll) {
 				});
 		    });
 		 
-     			cb(null,results[0].experts())
+     			cb(null,experts)
 		});
 	}
 
 	Poll.remoteMethod (
-        'Polls/{id}/sendEmails',
+        'sendEmails',
         {
-          http: {path: '/sendEmails', verb: 'get'},
+          http: {path: '/:id/sendEmails', verb: 'get'},
           accepts: {arg: 'id', type: 'string'},
           returns: {arg: 'data', type: 'array'}
         }
