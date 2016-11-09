@@ -9,8 +9,7 @@
     "answers": {
       "type": [
         "object"
-      ],
-      "required": true
+      ]
     }
   },
   "validations": [],

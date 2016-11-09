@@ -16,9 +16,19 @@
     },
     "title": {
       "type": "string"
+
     },
     "instructions": {
       "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "sent": {
+      "type": "boolean"
+    },
+    "expiration_limit":{
+      "type":"date"
     }
   },
   "validations": [],
@@ -28,6 +38,16 @@
       "model": "Expert",
       "foreignKey": "pollId",
       "through": "Result"
+    },
+    "investigations": {
+      "type": "belongsTo",
+      "model": "Investigation",
+      "foreignKey": "investigationId"
+    },
+    "results": {
+      "type": "hasMany",
+      "model": "Result",
+      "foreignKey": ""
     }
   },
   "acls": [

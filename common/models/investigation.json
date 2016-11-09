@@ -34,15 +34,9 @@
       "model": "Variable",
       "foreignKey": ""
     },
-    "Experts": {
-      "type": "hasAndBelongsToMany",
-      "model": "Expert",
-      "foreignKey": ""
-    },
     "polls": {
       "type": "hasMany",
-      "model": "Poll",
-      "foreignKey": ""
+      "model": "Poll"
     }
   },
   "acls": [

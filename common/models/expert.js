@@ -4,12 +4,12 @@ var path = require('path');
 var loopback = require("loopback");
 
 module.exports = function(Expert) {
-		//send verification email after registration
-  Expert.afterRemote('create', function(context, expertInstance, next) {
+/*  Expert.afterRemote('create', function(context, expertInstance, next) {
   	console.log(expertInstance);
 
   	 var emailData = {
-      url_poll:"www.google.com"
+      url_poll:"www.google.com",
+      test:''
     }; 
 
     // prepare a loopback template renderer
@@ -31,12 +31,7 @@ module.exports = function(Expert) {
         next(err);
       });
     }
-    
-
-
-
-
-    
-  });
+  
+  });*/
 
 };
