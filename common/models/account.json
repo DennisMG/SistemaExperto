@@ -7,7 +7,18 @@
   },
   "properties": {},
   "validations": [],
-  "relations": {},
-  "acls": [],
+  "relations": {
+    "investigations": {
+      "type": "hasMany",
+      "model": "Investigation",
+      "foreignKey": ""
+    }
+    },
+  "acls": [{
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW"
+    }],
   "methods": {}
 }

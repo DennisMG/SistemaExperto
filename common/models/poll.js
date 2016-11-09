@@ -5,7 +5,6 @@ var loopback = require("loopback");
 
 module.exports = function(Poll) {
 	Poll.sendEmails = function(pollId, cb){
-		//console.log(Poll.experts);
 		var experts = Poll.find({
 			include: 'experts',
 			where:{
@@ -27,9 +26,6 @@ module.exports = function(Poll) {
 		    var experts = results[0].experts();
 
 		    experts.forEach((expert,index)=>{
-		    	console.log(expert.email);
-		    	console.log(index);
-
 		    	var options = {
 			      type: 'email',
 			      to: expert.email,
@@ -40,8 +36,6 @@ module.exports = function(Poll) {
 
 		    	Poll.app.models.Email.send(options, function(err, mail) {
 					if(err) return cb(err);
-					console.log('Email Sent!');
-					console.log(mail);
 				});
 		    });
 		 
@@ -50,7 +44,7 @@ module.exports = function(Poll) {
 	}
 
 	Poll.remoteMethod (
-        'sendEmails',
+        'Polls/{id}/sendEmails',
         {
           http: {path: '/sendEmails', verb: 'get'},
           accepts: {arg: 'id', type: 'string'},

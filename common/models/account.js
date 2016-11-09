@@ -13,7 +13,7 @@ module.exports = function(Account) {
       to: userInstance.email,
       from: 'noreply@sistemaexperto.com',
       subject: 'Thanks for registering.',
-      template: path.resolve(__dirname,'../../server/views/verify.ejs'), ///Cambiar el primer parametro de resolve por tu path
+      template: path.resolve(__dirname,'../../server/views/verify.ejs'), 
       redirect: '/verified',
       verifyHref: 'http://localhost:3000/api/Accounts/confirm?uid='+userInstance.id+'&redirect=http://localhost:8888',
       user: Account,
@@ -25,10 +25,6 @@ module.exports = function(Account) {
 
 
     userInstance.verify(options, function(err, response) {
-    	console.log( err );
-    	console.log( response );
-    	console.log( next );
-      
       if (err) {
         Account.deleteById(userInstance.id);
         return next(err);
@@ -41,14 +37,6 @@ module.exports = function(Account) {
       };
 
       next();
-      ////////Esta parte es la que crashea!////////////////
-      // context.res.render('response', {
-      //   title: 'Signed up successfully',
-      //   content: 'Please check your email and click on the verification link ' -
-      //       'before logging in.',
-      //   redirectTo: '/',
-      //   redirectToLinkText: 'Log in'
-      // });
     });
   });
 
