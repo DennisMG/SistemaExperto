@@ -36,62 +36,93 @@ module.exports = function(Poll) {
 	}
 
 	Poll.getSuggestions = function(pollId, cb){
-		var data = [["JW",'HOla','Como','Estas','BEBE','hello'],
-					["JX",'Como','HOla','Como','hello','BEBE'],
-					["JY",'Como','HOla','hello','BEBE','Como'],
-					["JZ",'HOla','Como','Como','BEBE','hello']]
-		
-		
-		// var kendallsW= methods.calculateKendallsW();
-		// var kMeans = methods.runKMeans();
-		// var response = {
-		// 	kendallsW: kendallsW,
-		// 	kMeans: kMeans
-		// };
-		// cb(null,response);
-		var experts = Poll.find({
-			include: ['experts','results'],
+		Poll.find({
+			include: 'experts',
 			where:{
 				id: pollId
 			}
-		},(err, results)=>{
+		},(err, experts)=>{
 			if(err) return cb(err);
-		    console.log("results1: ",results);
-		    var results = results[0].results();
-		    var observations = [];
-		    console.log("results2: ",results);
-			for (var i = 0; i < results.length; i++) {
-				if(results[i].answers){
-					var observation = [results[i].expertId];
-					observation = (observation.concat(results[i].answers));
-					observations.push(observation);
+		    var expertList = experts[0].experts();
+		    console.log("expertList: ", expertList );
+
+		    var findExpertById = function(id, expertList){
+		    	
+		    	for(var i = 0 ; i < expertList.length; i++){
+		    		console.log( "find: "+id+" == "+ expertList[i].id);
+		    		if(expertList[i].id == id ){
+		    			console.log("FOUND!: ", expertList[i] );
+		    			return expertList[i];
+		    		}
+		    	}
+		    }
+
+
+		    Poll.find({
+				include: ['results'],
+				where:{
+					id: pollId
 				}
-			};
-		     console.log(observations);
-		     if(results.length == 0)
-		     	return cb(null,{});
-		     var engine = new InferenceEngine({
-					file_name: 'test',
-					data: observations,
-					k: 2,
-					m: 0,
-					shuffle: false,
-					times: 100
-				});
-		    var kendallsW= engine.calculateKendallsW();
-			var kMeans = engine.runKMeans();
-			var biggestCluster = engine.getMainCluster();
+			},(err, results)=>{
+				if(err) return cb(err);
+			    //console.log("results1: ",results);
+			    var results = results[0].results();
+			    
+			    var observations = [];
+				for (var i = 0; i < results.length; i++) {
+					if(results[i].answers){
+						var observation = [results[i].expertId];
+						observation = (observation.concat(results[i].answers));
+						observations.push(observation);
+					}
+				};
+			     //console.log(observations);
+			     if(results.length == 0)
+			     	return cb(null,{});
+			     var engine = new InferenceEngine({
+						file_name: 'test',
+						data: observations,
+						k: 2,
+						m: 0,
+						shuffle: false,
+						times: 100
+					});
+			    var kendallsW= engine.calculateKendallsW();
+				var kMeans = engine.runKMeans();
+				var biggestCluster = engine.getMainCluster();
+				var vectors = engine.getVectors();
 
-			for(var i=0; i<0;i++){
+				console.log( "vectors: ",vectors );
+				var finalExperts = [];
 
-			}
+				for(var i=0; i<vectors.length;i++){
+					if(biggestCluster == kMeans[i]){
+						finalExperts.push(vectors[i].expert);
+					}
+				}
 
-			var response = {
-				kendallsW: kendallsW,
-				kMeans: kMeans
-			};
-		    cb(null,response)
+				var agreedExperts = [];
+				for(var i=0; i<finalExperts.length;i++){
+					var found = findExpertById(finalExperts[i], expertList);
+					if(found)
+						agreedExperts.push(found);
+				}
+
+				console.log( agreedExperts );
+
+				var response = {
+					kendallsW: kendallsW,
+					kMeans: agreedExperts
+				};
+			    cb(null,response)
+			});
+
+
 		});
+		
+		
+		
+		
 	}
 
 	Poll.remoteMethod (

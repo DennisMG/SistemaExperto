@@ -12,12 +12,16 @@ var coreEngine = function  (opts) {
 	this.data = this.extractData(opts.data);
 	this.vectors = this.asingNumericValueToParticipant();
 
-	console.log("this.data: ",this.data);
-	console.log( "this.vectors: ",this.vectors );
+	// console.log("this.data: ",this.data);
+	// console.log( "this.vectors: ",this.vectors );
 
 
 	//this.executeMethods();
 }
+
+coreEngine.prototype.getVectors = function() {
+	return this.vectors;
+};
 
 coreEngine.prototype.getMainCluster = function() {
 	return this.biggest_cluster;
@@ -142,12 +146,12 @@ coreEngine.prototype.extractExperts = function(file) {
 
 coreEngine.prototype.extractParticipants = function(file) {
 	var ret_val = [];
-	console.log("participants: ", file);
+	// console.log("participants: ", file);
 	for (var participant = 1; participant < file[0].length; participant++)
 		ret_val.push(file[0][participant]);
 
 	if (this.shuffle) {
-		console.log("Shuffling")
+		// console.log("Shuffling")
 		var i = 0, j = 0, temp = null
 
 		for (i = ret_val.length - 1; i > 0; i -= 1) {
@@ -193,6 +197,29 @@ coreEngine.prototype.asingNumericValueToParticipant = function() {
 	}
 
 	return ret_val;
+};
+
+coreEngine.prototype.showNoiselessTable = function (results) {
+	var ret_val = [], temp_array = [];
+
+
+	for (var i = 0; i < this.vectors.length; i++) {
+		if (results[i] === this.biggest_cluster) {
+
+			temp_array.push(" " + this.vectors[i].expert + "");
+
+
+			for (var j = 0; j < this.vectors[0].classification.length; j++) {
+				temp_array.push(this.data.participants[this.vectors[i].classification[j] - 1]);
+			}
+			ret_val.push(temp_array);
+			temp_array = [];
+		}
+	}
+
+	noiseless_file = ret_val;
+
+	
 };
 
 module.exports = coreEngine;
