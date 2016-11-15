@@ -37,6 +37,10 @@
     "polls": {
       "type": "hasMany",
       "model": "Poll"
+    },
+    "experts": {
+      "type": "hasMany",
+      "model": "Expert"
     }
   },
   "acls": [

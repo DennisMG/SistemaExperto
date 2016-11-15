@@ -8,7 +8,7 @@
   "properties": {
     "answers": {
       "type": [
-        "object"
+        "string"
       ]
     }
   },
