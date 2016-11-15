@@ -44,15 +44,15 @@ module.exports = function(Poll) {
 		},(err, experts)=>{
 			if(err) return cb(err);
 		    var expertList = experts[0].experts();
-		    console.log("expertList: ", expertList );
+		    //console.log("expertList: ", expertList );
 
 		    var findExpertById = function(id, expertList){
 		    	var found = '';
 		    	for(var i = 0 ; i < expertList.length; i++){
-		    		console.log( "find: "+id+" == "+ expertList[i].id);
-		    		console.log( "RESULT: "+ expertList[i].id === id );
-		    		if(expertList[i].id === id ){
-		    			console.log("FOUND!: ", expertList[i] );
+		    		// console.log( "find: "+ id+" == "+  expertList[i].id);
+		    		// console.log( "RESULT: "+ expertList[i].id === id );
+		    		if(id.equals(expertList[i].id)){
+		    			// console.log("FOUND!: ", expertList[i] );
 		    			found = expertList[i];
 		    			break;
 		    		}
@@ -116,7 +116,7 @@ module.exports = function(Poll) {
 
 				var response = {
 					kendallsW: kendallsW,
-					kMeans: agreedExperts
+					suggestion: agreedExperts
 				};
 			    cb(null,response)
 			});
