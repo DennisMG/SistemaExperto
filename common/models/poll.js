@@ -47,16 +47,20 @@ module.exports = function(Poll) {
 		    console.log("expertList: ", expertList );
 
 		    var findExpertById = function(id, expertList){
-		    	
+		    	var found = '';
 		    	for(var i = 0 ; i < expertList.length; i++){
 		    		console.log( "find: "+id+" == "+ expertList[i].id);
-		    		if(expertList[i].id == id ){
+		    		console.log( "RESULT: "+ expertList[i].id === id );
+		    		if(expertList[i].id === id ){
 		    			console.log("FOUND!: ", expertList[i] );
-		    			return expertList[i];
+		    			found = expertList[i];
+		    			break;
 		    		}
-		    	}
-		    }
 
+		    	}
+		    	if(found)
+		    		return found;
+		    }
 
 		    Poll.find({
 				include: ['results'],
