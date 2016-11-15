@@ -12,11 +12,16 @@ var coreEngine = function  (opts) {
 	this.data = this.extractData(opts.data);
 	this.vectors = this.asingNumericValueToParticipant();
 
-	console.log(this.data);
+	console.log("this.data: ",this.data);
+	console.log( "this.vectors: ",this.vectors );
 
 
 	//this.executeMethods();
 }
+
+coreEngine.prototype.getMainCluster = function() {
+	return this.biggest_cluster;
+};
 
 coreEngine.prototype.setK = function(k) {
 	this.k = k;

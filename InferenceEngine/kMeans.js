@@ -163,52 +163,6 @@ KMeans.prototype.calculateKullbackLeiberDistance = function(vector) {
 };
 
 KMeans.prototype.moveMeans = function() {
-	// var sums = Array(this.means.length);
-	// var counts = Array(this.means.length);
-	// var moved = false;
-
-	// for (var i = 0; i < this.means.length; i++) {
-	// 	counts[i] = 0;
-	// 	sums[i] = Array(this.means[i].length);
-	// 	for  (var d = 0; d < this.means[i]; d++) {
-	// 		sums[i][d] = 0;
-	// 	}
-	// }
-
-	// for (var point_index = 0; point_index < this.assignments.length; point_index++) {
-	// 	var mean_index = this.assignments[point_index];
-	// 	var point = this.data[point_index].vector;
-	// 	var mean = this.means[mean_index];
-
-	// 	counts[mean_index]++;
-
-	// 	for (var d = 0; d < mean.length; d++) {
-	// 		sums[mean_index][d] += point[d];
-	// 	}
-	// }
-
-	// for (var mean_index = 0; mean_index < sums.length; mean_index++) {
-	// 	if (0 === counts[mean_index]) {
-	// 		sums[mean_index] = means[mean_index];
-	// 		for (var d = 0; d < this.data_extension.length; d++) {
-	// 			sums[mean_index][d] = this.data_extension[d].min + (Math.random() * this.data_ranges[d]);
-	// 		}
-	// 		continue;
-	// 	}
-
-	// 	for (var d = 0; d < sums[mean_index].length; d++) {
-	// 		sums[mean_index][d] /= counts[mean_index];
-	// 	}
-	// }
-
-	// if (this.means.toString() !== sums.toString()) {
-	// 	moved = true;
-	// }
-
-	// means = sums;
-
-	// return moved;
-
 	var sums = fillArray(this.means.length, 0); 
 	var counts = fillArray(this.means.length, 0);
 	var moved = false, i, meanIndex, dim;
@@ -220,11 +174,6 @@ KMeans.prototype.moveMeans = function() {
 	for (var vectorIndex = 0; vectorIndex < this.assignments.length; vectorIndex++) {
 		meanIndex = this.assignments[vectorIndex];
 		var vector = this.data[vectorIndex].vector;
-		
-		// console.log("assignments: " + this.assignments);
-		// console.log("means: " + this.means);
-		// console.log("looking for: " + meanIndex);
-		// console.log("mean[meanIndex]: " + this.means[meanIndex]);
 
 		var mean = this.means[meanIndex];
 

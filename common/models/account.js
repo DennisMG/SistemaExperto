@@ -2,6 +2,13 @@
 var config = require('../../server/config.json');
 var path = require('path');
 //{"email":"dennismolina.17@gmail.com","password":"123"}
+// userId: 581ab7472f8b64772a6a6313
+// Investigation id: 582b7e936ea22a520fd78484
+// Poll id: 582b7f3c6ea22a520fd78485
+// expert1 id: 582b80226ea22a520fd78486
+// expert2 id: 582b80286ea22a520fd78488
+// expert3 id: 582b802b6ea22a520fd7848a
+// expert4 id: 582b802f6ea22a520fd7848c 
 module.exports = function(Account) {
 
 	//send verification email after registration

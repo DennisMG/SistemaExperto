@@ -60,7 +60,7 @@ module.exports = function(Poll) {
 		    var results = results[0].results();
 		    var observations = [];
 		    console.log("results2: ",results);
-			for (var i = 0; i < results.length - 1; i++) {
+			for (var i = 0; i < results.length; i++) {
 				if(results[i].answers){
 					var observation = [results[i].expertId];
 					observation = (observation.concat(results[i].answers));
@@ -68,7 +68,9 @@ module.exports = function(Poll) {
 				}
 			};
 		     console.log(observations);
-		     var methods = new InferenceEngine({
+		     if(results.length == 0)
+		     	return cb(null,{});
+		     var engine = new InferenceEngine({
 					file_name: 'test',
 					data: observations,
 					k: 2,
@@ -76,8 +78,14 @@ module.exports = function(Poll) {
 					shuffle: false,
 					times: 100
 				});
-		    var kendallsW= methods.calculateKendallsW();
-			var kMeans = methods.runKMeans();
+		    var kendallsW= engine.calculateKendallsW();
+			var kMeans = engine.runKMeans();
+			var biggestCluster = engine.getMainCluster();
+
+			for(var i=0; i<0;i++){
+
+			}
+
 			var response = {
 				kendallsW: kendallsW,
 				kMeans: kMeans
