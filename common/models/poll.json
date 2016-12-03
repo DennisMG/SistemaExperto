@@ -18,6 +18,10 @@
       "type": "string"
 
     },
+    "type": {
+      "type": "string"
+
+    },
     "instructions": {
       "type": "string"
     },
@@ -39,7 +43,7 @@
       "foreignKey": "pollId",
       "through": "Result"
     },
-    "investigations": {
+    "investigation": {
       "type": "belongsTo",
       "model": "Investigation",
       "foreignKey": "investigationId"

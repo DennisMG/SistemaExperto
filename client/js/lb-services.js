@@ -89,58 +89,31 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
               method: "PUT",
             },
 
-            // INTERNAL. Use Investigation.Experts.findById() instead.
-            "prototype$__findById__Experts": {
+            // INTERNAL. Use Investigation.experts.findById() instead.
+            "prototype$__findById__experts": {
               params: {
                 'fk': '@fk',
               },
-              url: urlBase + "/investigations/:id/Experts/:fk",
+              url: urlBase + "/investigations/:id/experts/:fk",
               method: "GET",
             },
 
-            // INTERNAL. Use Investigation.Experts.destroyById() instead.
-            "prototype$__destroyById__Experts": {
+            // INTERNAL. Use Investigation.experts.destroyById() instead.
+            "prototype$__destroyById__experts": {
               params: {
                 'fk': '@fk',
               },
-              url: urlBase + "/investigations/:id/Experts/:fk",
+              url: urlBase + "/investigations/:id/experts/:fk",
               method: "DELETE",
             },
 
-            // INTERNAL. Use Investigation.Experts.updateById() instead.
-            "prototype$__updateById__Experts": {
+            // INTERNAL. Use Investigation.experts.updateById() instead.
+            "prototype$__updateById__experts": {
               params: {
                 'fk': '@fk',
               },
-              url: urlBase + "/investigations/:id/Experts/:fk",
+              url: urlBase + "/investigations/:id/experts/:fk",
               method: "PUT",
-            },
-
-            // INTERNAL. Use Investigation.Experts.link() instead.
-            "prototype$__link__Experts": {
-              params: {
-                'fk': '@fk',
-              },
-              url: urlBase + "/investigations/:id/Experts/rel/:fk",
-              method: "PUT",
-            },
-
-            // INTERNAL. Use Investigation.Experts.unlink() instead.
-            "prototype$__unlink__Experts": {
-              params: {
-                'fk': '@fk',
-              },
-              url: urlBase + "/investigations/:id/Experts/rel/:fk",
-              method: "DELETE",
-            },
-
-            // INTERNAL. Use Investigation.Experts.exists() instead.
-            "prototype$__exists__Experts": {
-              params: {
-                'fk': '@fk',
-              },
-              url: urlBase + "/investigations/:id/Experts/rel/:fk",
-              method: "HEAD",
             },
 
             // INTERNAL. Use Investigation.polls.findById() instead.
@@ -195,28 +168,28 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
               method: "GET",
             },
 
-            // INTERNAL. Use Investigation.Experts() instead.
-            "prototype$__get__Experts": {
+            // INTERNAL. Use Investigation.experts() instead.
+            "prototype$__get__experts": {
               isArray: true,
-              url: urlBase + "/investigations/:id/Experts",
+              url: urlBase + "/investigations/:id/experts",
               method: "GET",
             },
 
-            // INTERNAL. Use Investigation.Experts.create() instead.
-            "prototype$__create__Experts": {
-              url: urlBase + "/investigations/:id/Experts",
+            // INTERNAL. Use Investigation.experts.create() instead.
+            "prototype$__create__experts": {
+              url: urlBase + "/investigations/:id/experts",
               method: "POST",
             },
 
-            // INTERNAL. Use Investigation.Experts.destroyAll() instead.
-            "prototype$__delete__Experts": {
-              url: urlBase + "/investigations/:id/Experts",
+            // INTERNAL. Use Investigation.experts.destroyAll() instead.
+            "prototype$__delete__experts": {
+              url: urlBase + "/investigations/:id/experts",
               method: "DELETE",
             },
 
-            // INTERNAL. Use Investigation.Experts.count() instead.
-            "prototype$__count__Experts": {
-              url: urlBase + "/investigations/:id/Experts/count",
+            // INTERNAL. Use Investigation.experts.count() instead.
+            "prototype$__count__experts": {
+              url: urlBase + "/investigations/:id/experts/count",
               method: "GET",
             },
 
@@ -778,6 +751,71 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
               url: urlBase + "/investigations/change-stream",
               method: "POST",
             },
+
+            // INTERNAL. Use Account.investigations.findById() instead.
+            "::findById::Account::investigations": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Accounts/:id/investigations/:fk",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Account.investigations.destroyById() instead.
+            "::destroyById::Account::investigations": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Accounts/:id/investigations/:fk",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use Account.investigations.updateById() instead.
+            "::updateById::Account::investigations": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Accounts/:id/investigations/:fk",
+              method: "PUT",
+            },
+
+            // INTERNAL. Use Account.investigations() instead.
+            "::get::Account::investigations": {
+              isArray: true,
+              url: urlBase + "/Accounts/:id/investigations",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Account.investigations.create() instead.
+            "::create::Account::investigations": {
+              url: urlBase + "/Accounts/:id/investigations",
+              method: "POST",
+            },
+
+            // INTERNAL. Use Account.investigations.createMany() instead.
+            "::createMany::Account::investigations": {
+              isArray: true,
+              url: urlBase + "/Accounts/:id/investigations",
+              method: "POST",
+            },
+
+            // INTERNAL. Use Account.investigations.destroyAll() instead.
+            "::delete::Account::investigations": {
+              url: urlBase + "/Accounts/:id/investigations",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use Account.investigations.count() instead.
+            "::count::Account::investigations": {
+              url: urlBase + "/Accounts/:id/investigations/count",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Poll.investigations() instead.
+            "::get::Poll::investigations": {
+              url: urlBase + "/Polls/:id/investigations",
+              method: "GET",
+            },
           }
         );
 
@@ -1326,27 +1364,27 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
         };
     /**
      * @ngdoc object
-     * @name lbServices.Investigation.Experts
-     * @header lbServices.Investigation.Experts
+     * @name lbServices.Investigation.experts
+     * @header lbServices.Investigation.experts
      * @object
      * @description
      *
-     * The object `Investigation.Experts` groups methods
+     * The object `Investigation.experts` groups methods
      * manipulating `Expert` instances related to `Investigation`.
      *
-     * Call {@link lbServices.Investigation#Experts Investigation.Experts()}
+     * Call {@link lbServices.Investigation#experts Investigation.experts()}
      * to query all related instances.
      */
 
 
             /**
              * @ngdoc method
-             * @name lbServices.Investigation#Experts
+             * @name lbServices.Investigation#experts
              * @methodOf lbServices.Investigation
              *
              * @description
              *
-             * Queries Experts of Investigation.
+             * Queries experts of Investigation.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -1369,20 +1407,20 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              * This usually means the response is a `Expert` object.)
              * </em>
              */
-        R.Experts = function() {
+        R.experts = function() {
           var TargetResource = $injector.get("Expert");
-          var action = TargetResource["::get::Investigation::Experts"];
+          var action = TargetResource["::get::Investigation::experts"];
           return action.apply(R, arguments);
         };
 
             /**
              * @ngdoc method
-             * @name lbServices.Investigation.Experts#count
-             * @methodOf lbServices.Investigation.Experts
+             * @name lbServices.Investigation.experts#count
+             * @methodOf lbServices.Investigation.experts
              *
              * @description
              *
-             * Counts Experts of Investigation.
+             * Counts experts of Investigation.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -1404,20 +1442,20 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              *  - `count` – `{number=}` -
              */
-        R.Experts.count = function() {
+        R.experts.count = function() {
           var TargetResource = $injector.get("Expert");
-          var action = TargetResource["::count::Investigation::Experts"];
+          var action = TargetResource["::count::Investigation::experts"];
           return action.apply(R, arguments);
         };
 
             /**
              * @ngdoc method
-             * @name lbServices.Investigation.Experts#create
-             * @methodOf lbServices.Investigation.Experts
+             * @name lbServices.Investigation.experts#create
+             * @methodOf lbServices.Investigation.experts
              *
              * @description
              *
-             * Creates a new instance in Experts of this model.
+             * Creates a new instance in experts of this model.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -1442,20 +1480,20 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              * This usually means the response is a `Expert` object.)
              * </em>
              */
-        R.Experts.create = function() {
+        R.experts.create = function() {
           var TargetResource = $injector.get("Expert");
-          var action = TargetResource["::create::Investigation::Experts"];
+          var action = TargetResource["::create::Investigation::experts"];
           return action.apply(R, arguments);
         };
 
             /**
              * @ngdoc method
-             * @name lbServices.Investigation.Experts#createMany
-             * @methodOf lbServices.Investigation.Experts
+             * @name lbServices.Investigation.experts#createMany
+             * @methodOf lbServices.Investigation.experts
              *
              * @description
              *
-             * Creates a new instance in Experts of this model.
+             * Creates a new instance in experts of this model.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -1480,20 +1518,20 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              * This usually means the response is a `Expert` object.)
              * </em>
              */
-        R.Experts.createMany = function() {
+        R.experts.createMany = function() {
           var TargetResource = $injector.get("Expert");
-          var action = TargetResource["::createMany::Investigation::Experts"];
+          var action = TargetResource["::createMany::Investigation::experts"];
           return action.apply(R, arguments);
         };
 
             /**
              * @ngdoc method
-             * @name lbServices.Investigation.Experts#destroyAll
-             * @methodOf lbServices.Investigation.Experts
+             * @name lbServices.Investigation.experts#destroyAll
+             * @methodOf lbServices.Investigation.experts
              *
              * @description
              *
-             * Deletes all Experts of this model.
+             * Deletes all experts of this model.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -1511,26 +1549,26 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * This method returns no data.
              */
-        R.Experts.destroyAll = function() {
+        R.experts.destroyAll = function() {
           var TargetResource = $injector.get("Expert");
-          var action = TargetResource["::delete::Investigation::Experts"];
+          var action = TargetResource["::delete::Investigation::experts"];
           return action.apply(R, arguments);
         };
 
             /**
              * @ngdoc method
-             * @name lbServices.Investigation.Experts#destroyById
-             * @methodOf lbServices.Investigation.Experts
+             * @name lbServices.Investigation.experts#destroyById
+             * @methodOf lbServices.Investigation.experts
              *
              * @description
              *
-             * Delete a related item by id for Experts.
+             * Delete a related item by id for experts.
              *
              * @param {Object=} parameters Request parameters.
              *
              *  - `id` – `{*}` - PersistedModel id
              *
-             *  - `fk` – `{*}` - Foreign key for Experts
+             *  - `fk` – `{*}` - Foreign key for experts
              *
              * @param {function(Object,Object)=} successCb
              *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -1544,26 +1582,26 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * This method returns no data.
              */
-        R.Experts.destroyById = function() {
+        R.experts.destroyById = function() {
           var TargetResource = $injector.get("Expert");
-          var action = TargetResource["::destroyById::Investigation::Experts"];
+          var action = TargetResource["::destroyById::Investigation::experts"];
           return action.apply(R, arguments);
         };
 
             /**
              * @ngdoc method
-             * @name lbServices.Investigation.Experts#exists
-             * @methodOf lbServices.Investigation.Experts
+             * @name lbServices.Investigation.experts#findById
+             * @methodOf lbServices.Investigation.experts
              *
              * @description
              *
-             * Check the existence of Experts relation to an item by id.
+             * Find a related item by id for experts.
              *
              * @param {Object=} parameters Request parameters.
              *
              *  - `id` – `{*}` - PersistedModel id
              *
-             *  - `fk` – `{*}` - Foreign key for Experts
+             *  - `fk` – `{*}` - Foreign key for experts
              *
              * @param {function(Object,Object)=} successCb
              *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -1580,62 +1618,26 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              * This usually means the response is a `Expert` object.)
              * </em>
              */
-        R.Experts.exists = function() {
+        R.experts.findById = function() {
           var TargetResource = $injector.get("Expert");
-          var action = TargetResource["::exists::Investigation::Experts"];
+          var action = TargetResource["::findById::Investigation::experts"];
           return action.apply(R, arguments);
         };
 
             /**
              * @ngdoc method
-             * @name lbServices.Investigation.Experts#findById
-             * @methodOf lbServices.Investigation.Experts
+             * @name lbServices.Investigation.experts#updateById
+             * @methodOf lbServices.Investigation.experts
              *
              * @description
              *
-             * Find a related item by id for Experts.
+             * Update a related item by id for experts.
              *
              * @param {Object=} parameters Request parameters.
              *
              *  - `id` – `{*}` - PersistedModel id
              *
-             *  - `fk` – `{*}` - Foreign key for Experts
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `Expert` object.)
-             * </em>
-             */
-        R.Experts.findById = function() {
-          var TargetResource = $injector.get("Expert");
-          var action = TargetResource["::findById::Investigation::Experts"];
-          return action.apply(R, arguments);
-        };
-
-            /**
-             * @ngdoc method
-             * @name lbServices.Investigation.Experts#link
-             * @methodOf lbServices.Investigation.Experts
-             *
-             * @description
-             *
-             * Add a related item by id for Experts.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` – `{*}` - PersistedModel id
-             *
-             *  - `fk` – `{*}` - Foreign key for Experts
+             *  - `fk` – `{*}` - Foreign key for experts
              *
              * @param {Object} postData Request data.
              *
@@ -1656,82 +1658,9 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              * This usually means the response is a `Expert` object.)
              * </em>
              */
-        R.Experts.link = function() {
+        R.experts.updateById = function() {
           var TargetResource = $injector.get("Expert");
-          var action = TargetResource["::link::Investigation::Experts"];
-          return action.apply(R, arguments);
-        };
-
-            /**
-             * @ngdoc method
-             * @name lbServices.Investigation.Experts#unlink
-             * @methodOf lbServices.Investigation.Experts
-             *
-             * @description
-             *
-             * Remove the Experts relation to an item by id.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` – `{*}` - PersistedModel id
-             *
-             *  - `fk` – `{*}` - Foreign key for Experts
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * This method returns no data.
-             */
-        R.Experts.unlink = function() {
-          var TargetResource = $injector.get("Expert");
-          var action = TargetResource["::unlink::Investigation::Experts"];
-          return action.apply(R, arguments);
-        };
-
-            /**
-             * @ngdoc method
-             * @name lbServices.Investigation.Experts#updateById
-             * @methodOf lbServices.Investigation.Experts
-             *
-             * @description
-             *
-             * Update a related item by id for Experts.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` – `{*}` - PersistedModel id
-             *
-             *  - `fk` – `{*}` - Foreign key for Experts
-             *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `Expert` object.)
-             * </em>
-             */
-        R.Experts.updateById = function() {
-          var TargetResource = $injector.get("Expert");
-          var action = TargetResource["::updateById::Investigation::Experts"];
+          var action = TargetResource["::updateById::Investigation::experts"];
           return action.apply(R, arguments);
         };
     /**
@@ -3051,6 +2980,33 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
               method: "PUT",
             },
 
+            // INTERNAL. Use Account.investigations.findById() instead.
+            "prototype$__findById__investigations": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Accounts/:id/investigations/:fk",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Account.investigations.destroyById() instead.
+            "prototype$__destroyById__investigations": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Accounts/:id/investigations/:fk",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use Account.investigations.updateById() instead.
+            "prototype$__updateById__investigations": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Accounts/:id/investigations/:fk",
+              method: "PUT",
+            },
+
             /**
              * @ngdoc method
              * @name lbServices.Account#prototype$__get__accessTokens
@@ -3185,6 +3141,31 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              */
             "prototype$__count__accessTokens": {
               url: urlBase + "/Accounts/:id/accessTokens/count",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Account.investigations() instead.
+            "prototype$__get__investigations": {
+              isArray: true,
+              url: urlBase + "/Accounts/:id/investigations",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Account.investigations.create() instead.
+            "prototype$__create__investigations": {
+              url: urlBase + "/Accounts/:id/investigations",
+              method: "POST",
+            },
+
+            // INTERNAL. Use Account.investigations.destroyAll() instead.
+            "prototype$__delete__investigations": {
+              url: urlBase + "/Accounts/:id/investigations",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use Account.investigations.count() instead.
+            "prototype$__count__investigations": {
+              url: urlBase + "/Accounts/:id/investigations/count",
               method: "GET",
             },
 
@@ -4218,6 +4199,307 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
         */
         R.modelName = "Account";
 
+    /**
+     * @ngdoc object
+     * @name lbServices.Account.investigations
+     * @header lbServices.Account.investigations
+     * @object
+     * @description
+     *
+     * The object `Account.investigations` groups methods
+     * manipulating `Investigation` instances related to `Account`.
+     *
+     * Call {@link lbServices.Account#investigations Account.investigations()}
+     * to query all related instances.
+     */
+
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Account#investigations
+             * @methodOf lbServices.Account
+             *
+             * @description
+             *
+             * Queries investigations of Account.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - User id
+             *
+             *  - `filter` – `{object=}` -
+             *
+             * @param {function(Array.<Object>,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Array.<Object>} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Investigation` object.)
+             * </em>
+             */
+        R.investigations = function() {
+          var TargetResource = $injector.get("Investigation");
+          var action = TargetResource["::get::Account::investigations"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Account.investigations#count
+             * @methodOf lbServices.Account.investigations
+             *
+             * @description
+             *
+             * Counts investigations of Account.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - User id
+             *
+             *  - `where` – `{object=}` - Criteria to match model instances
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * Data properties:
+             *
+             *  - `count` – `{number=}` -
+             */
+        R.investigations.count = function() {
+          var TargetResource = $injector.get("Investigation");
+          var action = TargetResource["::count::Account::investigations"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Account.investigations#create
+             * @methodOf lbServices.Account.investigations
+             *
+             * @description
+             *
+             * Creates a new instance in investigations of this model.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - User id
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Investigation` object.)
+             * </em>
+             */
+        R.investigations.create = function() {
+          var TargetResource = $injector.get("Investigation");
+          var action = TargetResource["::create::Account::investigations"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Account.investigations#createMany
+             * @methodOf lbServices.Account.investigations
+             *
+             * @description
+             *
+             * Creates a new instance in investigations of this model.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - User id
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Array.<Object>,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Array.<Object>} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Investigation` object.)
+             * </em>
+             */
+        R.investigations.createMany = function() {
+          var TargetResource = $injector.get("Investigation");
+          var action = TargetResource["::createMany::Account::investigations"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Account.investigations#destroyAll
+             * @methodOf lbServices.Account.investigations
+             *
+             * @description
+             *
+             * Deletes all investigations of this model.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - User id
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * This method returns no data.
+             */
+        R.investigations.destroyAll = function() {
+          var TargetResource = $injector.get("Investigation");
+          var action = TargetResource["::delete::Account::investigations"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Account.investigations#destroyById
+             * @methodOf lbServices.Account.investigations
+             *
+             * @description
+             *
+             * Delete a related item by id for investigations.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - User id
+             *
+             *  - `fk` – `{*}` - Foreign key for investigations
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * This method returns no data.
+             */
+        R.investigations.destroyById = function() {
+          var TargetResource = $injector.get("Investigation");
+          var action = TargetResource["::destroyById::Account::investigations"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Account.investigations#findById
+             * @methodOf lbServices.Account.investigations
+             *
+             * @description
+             *
+             * Find a related item by id for investigations.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - User id
+             *
+             *  - `fk` – `{*}` - Foreign key for investigations
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Investigation` object.)
+             * </em>
+             */
+        R.investigations.findById = function() {
+          var TargetResource = $injector.get("Investigation");
+          var action = TargetResource["::findById::Account::investigations"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Account.investigations#updateById
+             * @methodOf lbServices.Account.investigations
+             *
+             * @description
+             *
+             * Update a related item by id for investigations.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - User id
+             *
+             *  - `fk` – `{*}` - Foreign key for investigations
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Investigation` object.)
+             * </em>
+             */
+        R.investigations.updateById = function() {
+          var TargetResource = $injector.get("Investigation");
+          var action = TargetResource["::updateById::Account::investigations"];
+          return action.apply(R, arguments);
+        };
 
 
         return R;
@@ -4296,6 +4578,85 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
         urlBase + "/Experts/:id",
           { 'id': '@id' },
           {
+
+            // INTERNAL. Use Expert.polls.findById() instead.
+            "prototype$__findById__polls": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Experts/:id/polls/:fk",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Expert.polls.destroyById() instead.
+            "prototype$__destroyById__polls": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Experts/:id/polls/:fk",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use Expert.polls.updateById() instead.
+            "prototype$__updateById__polls": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Experts/:id/polls/:fk",
+              method: "PUT",
+            },
+
+            // INTERNAL. Use Expert.polls.link() instead.
+            "prototype$__link__polls": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Experts/:id/polls/rel/:fk",
+              method: "PUT",
+            },
+
+            // INTERNAL. Use Expert.polls.unlink() instead.
+            "prototype$__unlink__polls": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Experts/:id/polls/rel/:fk",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use Expert.polls.exists() instead.
+            "prototype$__exists__polls": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Experts/:id/polls/rel/:fk",
+              method: "HEAD",
+            },
+
+            // INTERNAL. Use Expert.polls() instead.
+            "prototype$__get__polls": {
+              isArray: true,
+              url: urlBase + "/Experts/:id/polls",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Expert.polls.create() instead.
+            "prototype$__create__polls": {
+              url: urlBase + "/Experts/:id/polls",
+              method: "POST",
+            },
+
+            // INTERNAL. Use Expert.polls.destroyAll() instead.
+            "prototype$__delete__polls": {
+              url: urlBase + "/Experts/:id/polls",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use Expert.polls.count() instead.
+            "prototype$__count__polls": {
+              url: urlBase + "/Experts/:id/polls/count",
+              method: "GET",
+            },
 
             /**
              * @ngdoc method
@@ -4831,89 +5192,154 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
               method: "POST",
             },
 
-            // INTERNAL. Use Investigation.Experts.findById() instead.
-            "::findById::Investigation::Experts": {
+            // INTERNAL. Use Investigation.experts.findById() instead.
+            "::findById::Investigation::experts": {
               params: {
                 'fk': '@fk',
               },
-              url: urlBase + "/investigations/:id/Experts/:fk",
+              url: urlBase + "/investigations/:id/experts/:fk",
               method: "GET",
             },
 
-            // INTERNAL. Use Investigation.Experts.destroyById() instead.
-            "::destroyById::Investigation::Experts": {
+            // INTERNAL. Use Investigation.experts.destroyById() instead.
+            "::destroyById::Investigation::experts": {
               params: {
                 'fk': '@fk',
               },
-              url: urlBase + "/investigations/:id/Experts/:fk",
+              url: urlBase + "/investigations/:id/experts/:fk",
               method: "DELETE",
             },
 
-            // INTERNAL. Use Investigation.Experts.updateById() instead.
-            "::updateById::Investigation::Experts": {
+            // INTERNAL. Use Investigation.experts.updateById() instead.
+            "::updateById::Investigation::experts": {
               params: {
                 'fk': '@fk',
               },
-              url: urlBase + "/investigations/:id/Experts/:fk",
+              url: urlBase + "/investigations/:id/experts/:fk",
               method: "PUT",
             },
 
-            // INTERNAL. Use Investigation.Experts.link() instead.
-            "::link::Investigation::Experts": {
-              params: {
-                'fk': '@fk',
-              },
-              url: urlBase + "/investigations/:id/Experts/rel/:fk",
-              method: "PUT",
+            // INTERNAL. Use Investigation.experts() instead.
+            "::get::Investigation::experts": {
+              isArray: true,
+              url: urlBase + "/investigations/:id/experts",
+              method: "GET",
             },
 
-            // INTERNAL. Use Investigation.Experts.unlink() instead.
-            "::unlink::Investigation::Experts": {
-              params: {
-                'fk': '@fk',
-              },
-              url: urlBase + "/investigations/:id/Experts/rel/:fk",
+            // INTERNAL. Use Investigation.experts.create() instead.
+            "::create::Investigation::experts": {
+              url: urlBase + "/investigations/:id/experts",
+              method: "POST",
+            },
+
+            // INTERNAL. Use Investigation.experts.createMany() instead.
+            "::createMany::Investigation::experts": {
+              isArray: true,
+              url: urlBase + "/investigations/:id/experts",
+              method: "POST",
+            },
+
+            // INTERNAL. Use Investigation.experts.destroyAll() instead.
+            "::delete::Investigation::experts": {
+              url: urlBase + "/investigations/:id/experts",
               method: "DELETE",
             },
 
-            // INTERNAL. Use Investigation.Experts.exists() instead.
-            "::exists::Investigation::Experts": {
+            // INTERNAL. Use Investigation.experts.count() instead.
+            "::count::Investigation::experts": {
+              url: urlBase + "/investigations/:id/experts/count",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Poll.experts.findById() instead.
+            "::findById::Poll::experts": {
               params: {
                 'fk': '@fk',
               },
-              url: urlBase + "/investigations/:id/Experts/rel/:fk",
+              url: urlBase + "/Polls/:id/experts/:fk",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Poll.experts.destroyById() instead.
+            "::destroyById::Poll::experts": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Polls/:id/experts/:fk",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use Poll.experts.updateById() instead.
+            "::updateById::Poll::experts": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Polls/:id/experts/:fk",
+              method: "PUT",
+            },
+
+            // INTERNAL. Use Poll.experts.link() instead.
+            "::link::Poll::experts": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Polls/:id/experts/rel/:fk",
+              method: "PUT",
+            },
+
+            // INTERNAL. Use Poll.experts.unlink() instead.
+            "::unlink::Poll::experts": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Polls/:id/experts/rel/:fk",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use Poll.experts.exists() instead.
+            "::exists::Poll::experts": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Polls/:id/experts/rel/:fk",
               method: "HEAD",
             },
 
-            // INTERNAL. Use Investigation.Experts() instead.
-            "::get::Investigation::Experts": {
+            // INTERNAL. Use Poll.experts() instead.
+            "::get::Poll::experts": {
               isArray: true,
-              url: urlBase + "/investigations/:id/Experts",
+              url: urlBase + "/Polls/:id/experts",
               method: "GET",
             },
 
-            // INTERNAL. Use Investigation.Experts.create() instead.
-            "::create::Investigation::Experts": {
-              url: urlBase + "/investigations/:id/Experts",
+            // INTERNAL. Use Poll.experts.create() instead.
+            "::create::Poll::experts": {
+              url: urlBase + "/Polls/:id/experts",
               method: "POST",
             },
 
-            // INTERNAL. Use Investigation.Experts.createMany() instead.
-            "::createMany::Investigation::Experts": {
+            // INTERNAL. Use Poll.experts.createMany() instead.
+            "::createMany::Poll::experts": {
               isArray: true,
-              url: urlBase + "/investigations/:id/Experts",
+              url: urlBase + "/Polls/:id/experts",
               method: "POST",
             },
 
-            // INTERNAL. Use Investigation.Experts.destroyAll() instead.
-            "::delete::Investigation::Experts": {
-              url: urlBase + "/investigations/:id/Experts",
+            // INTERNAL. Use Poll.experts.destroyAll() instead.
+            "::delete::Poll::experts": {
+              url: urlBase + "/Polls/:id/experts",
               method: "DELETE",
             },
 
-            // INTERNAL. Use Investigation.Experts.count() instead.
-            "::count::Investigation::Experts": {
-              url: urlBase + "/investigations/:id/Experts/count",
+            // INTERNAL. Use Poll.experts.count() instead.
+            "::count::Poll::experts": {
+              url: urlBase + "/Polls/:id/experts/count",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Result.expert() instead.
+            "::get::Result::expert": {
+              url: urlBase + "/Results/:id/expert",
               method: "GET",
             },
           }
@@ -5161,6 +5587,416 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
         */
         R.modelName = "Expert";
 
+    /**
+     * @ngdoc object
+     * @name lbServices.Expert.polls
+     * @header lbServices.Expert.polls
+     * @object
+     * @description
+     *
+     * The object `Expert.polls` groups methods
+     * manipulating `Poll` instances related to `Expert`.
+     *
+     * Call {@link lbServices.Expert#polls Expert.polls()}
+     * to query all related instances.
+     */
+
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Expert#polls
+             * @methodOf lbServices.Expert
+             *
+             * @description
+             *
+             * Queries polls of Expert.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `filter` – `{object=}` -
+             *
+             * @param {function(Array.<Object>,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Array.<Object>} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Poll` object.)
+             * </em>
+             */
+        R.polls = function() {
+          var TargetResource = $injector.get("Poll");
+          var action = TargetResource["::get::Expert::polls"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Expert.polls#count
+             * @methodOf lbServices.Expert.polls
+             *
+             * @description
+             *
+             * Counts polls of Expert.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `where` – `{object=}` - Criteria to match model instances
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * Data properties:
+             *
+             *  - `count` – `{number=}` -
+             */
+        R.polls.count = function() {
+          var TargetResource = $injector.get("Poll");
+          var action = TargetResource["::count::Expert::polls"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Expert.polls#create
+             * @methodOf lbServices.Expert.polls
+             *
+             * @description
+             *
+             * Creates a new instance in polls of this model.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Poll` object.)
+             * </em>
+             */
+        R.polls.create = function() {
+          var TargetResource = $injector.get("Poll");
+          var action = TargetResource["::create::Expert::polls"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Expert.polls#createMany
+             * @methodOf lbServices.Expert.polls
+             *
+             * @description
+             *
+             * Creates a new instance in polls of this model.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Array.<Object>,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Array.<Object>} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Poll` object.)
+             * </em>
+             */
+        R.polls.createMany = function() {
+          var TargetResource = $injector.get("Poll");
+          var action = TargetResource["::createMany::Expert::polls"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Expert.polls#destroyAll
+             * @methodOf lbServices.Expert.polls
+             *
+             * @description
+             *
+             * Deletes all polls of this model.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * This method returns no data.
+             */
+        R.polls.destroyAll = function() {
+          var TargetResource = $injector.get("Poll");
+          var action = TargetResource["::delete::Expert::polls"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Expert.polls#destroyById
+             * @methodOf lbServices.Expert.polls
+             *
+             * @description
+             *
+             * Delete a related item by id for polls.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `fk` – `{*}` - Foreign key for polls
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * This method returns no data.
+             */
+        R.polls.destroyById = function() {
+          var TargetResource = $injector.get("Poll");
+          var action = TargetResource["::destroyById::Expert::polls"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Expert.polls#exists
+             * @methodOf lbServices.Expert.polls
+             *
+             * @description
+             *
+             * Check the existence of polls relation to an item by id.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `fk` – `{*}` - Foreign key for polls
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Poll` object.)
+             * </em>
+             */
+        R.polls.exists = function() {
+          var TargetResource = $injector.get("Poll");
+          var action = TargetResource["::exists::Expert::polls"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Expert.polls#findById
+             * @methodOf lbServices.Expert.polls
+             *
+             * @description
+             *
+             * Find a related item by id for polls.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `fk` – `{*}` - Foreign key for polls
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Poll` object.)
+             * </em>
+             */
+        R.polls.findById = function() {
+          var TargetResource = $injector.get("Poll");
+          var action = TargetResource["::findById::Expert::polls"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Expert.polls#link
+             * @methodOf lbServices.Expert.polls
+             *
+             * @description
+             *
+             * Add a related item by id for polls.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `fk` – `{*}` - Foreign key for polls
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Poll` object.)
+             * </em>
+             */
+        R.polls.link = function() {
+          var TargetResource = $injector.get("Poll");
+          var action = TargetResource["::link::Expert::polls"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Expert.polls#unlink
+             * @methodOf lbServices.Expert.polls
+             *
+             * @description
+             *
+             * Remove the polls relation to an item by id.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `fk` – `{*}` - Foreign key for polls
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * This method returns no data.
+             */
+        R.polls.unlink = function() {
+          var TargetResource = $injector.get("Poll");
+          var action = TargetResource["::unlink::Expert::polls"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Expert.polls#updateById
+             * @methodOf lbServices.Expert.polls
+             *
+             * @description
+             *
+             * Update a related item by id for polls.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `fk` – `{*}` - Foreign key for polls
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Poll` object.)
+             * </em>
+             */
+        R.polls.updateById = function() {
+          var TargetResource = $injector.get("Poll");
+          var action = TargetResource["::updateById::Expert::polls"];
+          return action.apply(R, arguments);
+        };
 
 
         return R;
@@ -5192,6 +6028,143 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
         urlBase + "/Polls/:id",
           { 'id': '@id' },
           {
+
+            // INTERNAL. Use Poll.investigations() instead.
+            "prototype$__get__investigations": {
+              url: urlBase + "/Polls/:id/investigations",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Poll.experts.findById() instead.
+            "prototype$__findById__experts": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Polls/:id/experts/:fk",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Poll.experts.destroyById() instead.
+            "prototype$__destroyById__experts": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Polls/:id/experts/:fk",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use Poll.experts.updateById() instead.
+            "prototype$__updateById__experts": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Polls/:id/experts/:fk",
+              method: "PUT",
+            },
+
+            // INTERNAL. Use Poll.experts.link() instead.
+            "prototype$__link__experts": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Polls/:id/experts/rel/:fk",
+              method: "PUT",
+            },
+
+            // INTERNAL. Use Poll.experts.unlink() instead.
+            "prototype$__unlink__experts": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Polls/:id/experts/rel/:fk",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use Poll.experts.exists() instead.
+            "prototype$__exists__experts": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Polls/:id/experts/rel/:fk",
+              method: "HEAD",
+            },
+
+            // INTERNAL. Use Poll.results.findById() instead.
+            "prototype$__findById__results": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Polls/:id/results/:fk",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Poll.results.destroyById() instead.
+            "prototype$__destroyById__results": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Polls/:id/results/:fk",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use Poll.results.updateById() instead.
+            "prototype$__updateById__results": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Polls/:id/results/:fk",
+              method: "PUT",
+            },
+
+            // INTERNAL. Use Poll.experts() instead.
+            "prototype$__get__experts": {
+              isArray: true,
+              url: urlBase + "/Polls/:id/experts",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Poll.experts.create() instead.
+            "prototype$__create__experts": {
+              url: urlBase + "/Polls/:id/experts",
+              method: "POST",
+            },
+
+            // INTERNAL. Use Poll.experts.destroyAll() instead.
+            "prototype$__delete__experts": {
+              url: urlBase + "/Polls/:id/experts",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use Poll.experts.count() instead.
+            "prototype$__count__experts": {
+              url: urlBase + "/Polls/:id/experts/count",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Poll.results() instead.
+            "prototype$__get__results": {
+              isArray: true,
+              url: urlBase + "/Polls/:id/results",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Poll.results.create() instead.
+            "prototype$__create__results": {
+              url: urlBase + "/Polls/:id/results",
+              method: "POST",
+            },
+
+            // INTERNAL. Use Poll.results.destroyAll() instead.
+            "prototype$__delete__results": {
+              url: urlBase + "/Polls/:id/results",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use Poll.results.count() instead.
+            "prototype$__count__results": {
+              url: urlBase + "/Polls/:id/results/count",
+              method: "GET",
+            },
 
             /**
              * @ngdoc method
@@ -5727,6 +6700,74 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
               method: "POST",
             },
 
+            /**
+             * @ngdoc method
+             * @name lbServices.Poll#sendEmails
+             * @methodOf lbServices.Poll
+             *
+             * @description
+             *
+             * <em>
+             * (The remote method definition does not provide any description.)
+             * </em>
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{string=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * Data properties:
+             *
+             *  - `data` – `{*=}` -
+             */
+            "sendEmails": {
+              url: urlBase + "/Polls/:id/sendEmails",
+              method: "GET",
+            },
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Poll#getSuggestions
+             * @methodOf lbServices.Poll
+             *
+             * @description
+             *
+             * <em>
+             * (The remote method definition does not provide any description.)
+             * </em>
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{string=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * Data properties:
+             *
+             *  - `data` – `{Object=}` -
+             */
+            "getSuggestions": {
+              url: urlBase + "/Polls/:id/getSuggestions",
+              method: "GET",
+            },
+
             // INTERNAL. Use Investigation.polls.findById() instead.
             "::findById::Investigation::polls": {
               params: {
@@ -5783,6 +6824,98 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
             // INTERNAL. Use Investigation.polls.count() instead.
             "::count::Investigation::polls": {
               url: urlBase + "/investigations/:id/polls/count",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Expert.polls.findById() instead.
+            "::findById::Expert::polls": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Experts/:id/polls/:fk",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Expert.polls.destroyById() instead.
+            "::destroyById::Expert::polls": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Experts/:id/polls/:fk",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use Expert.polls.updateById() instead.
+            "::updateById::Expert::polls": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Experts/:id/polls/:fk",
+              method: "PUT",
+            },
+
+            // INTERNAL. Use Expert.polls.link() instead.
+            "::link::Expert::polls": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Experts/:id/polls/rel/:fk",
+              method: "PUT",
+            },
+
+            // INTERNAL. Use Expert.polls.unlink() instead.
+            "::unlink::Expert::polls": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Experts/:id/polls/rel/:fk",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use Expert.polls.exists() instead.
+            "::exists::Expert::polls": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Experts/:id/polls/rel/:fk",
+              method: "HEAD",
+            },
+
+            // INTERNAL. Use Expert.polls() instead.
+            "::get::Expert::polls": {
+              isArray: true,
+              url: urlBase + "/Experts/:id/polls",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Expert.polls.create() instead.
+            "::create::Expert::polls": {
+              url: urlBase + "/Experts/:id/polls",
+              method: "POST",
+            },
+
+            // INTERNAL. Use Expert.polls.createMany() instead.
+            "::createMany::Expert::polls": {
+              isArray: true,
+              url: urlBase + "/Experts/:id/polls",
+              method: "POST",
+            },
+
+            // INTERNAL. Use Expert.polls.destroyAll() instead.
+            "::delete::Expert::polls": {
+              url: urlBase + "/Experts/:id/polls",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use Expert.polls.count() instead.
+            "::count::Expert::polls": {
+              url: urlBase + "/Experts/:id/polls/count",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Result.poll() instead.
+            "::get::Result::poll": {
+              url: urlBase + "/Results/:id/poll",
               method: "GET",
             },
           }
@@ -6030,6 +7163,1706 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
         */
         R.modelName = "Poll";
 
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Poll#investigations
+             * @methodOf lbServices.Poll
+             *
+             * @description
+             *
+             * Fetches belongsTo relation investigations.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `refresh` – `{boolean=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Investigation` object.)
+             * </em>
+             */
+        R.investigations = function() {
+          var TargetResource = $injector.get("Investigation");
+          var action = TargetResource["::get::Poll::investigations"];
+          return action.apply(R, arguments);
+        };
+    /**
+     * @ngdoc object
+     * @name lbServices.Poll.experts
+     * @header lbServices.Poll.experts
+     * @object
+     * @description
+     *
+     * The object `Poll.experts` groups methods
+     * manipulating `Expert` instances related to `Poll`.
+     *
+     * Call {@link lbServices.Poll#experts Poll.experts()}
+     * to query all related instances.
+     */
+
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Poll#experts
+             * @methodOf lbServices.Poll
+             *
+             * @description
+             *
+             * Queries experts of Poll.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `filter` – `{object=}` -
+             *
+             * @param {function(Array.<Object>,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Array.<Object>} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Expert` object.)
+             * </em>
+             */
+        R.experts = function() {
+          var TargetResource = $injector.get("Expert");
+          var action = TargetResource["::get::Poll::experts"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Poll.experts#count
+             * @methodOf lbServices.Poll.experts
+             *
+             * @description
+             *
+             * Counts experts of Poll.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `where` – `{object=}` - Criteria to match model instances
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * Data properties:
+             *
+             *  - `count` – `{number=}` -
+             */
+        R.experts.count = function() {
+          var TargetResource = $injector.get("Expert");
+          var action = TargetResource["::count::Poll::experts"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Poll.experts#create
+             * @methodOf lbServices.Poll.experts
+             *
+             * @description
+             *
+             * Creates a new instance in experts of this model.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Expert` object.)
+             * </em>
+             */
+        R.experts.create = function() {
+          var TargetResource = $injector.get("Expert");
+          var action = TargetResource["::create::Poll::experts"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Poll.experts#createMany
+             * @methodOf lbServices.Poll.experts
+             *
+             * @description
+             *
+             * Creates a new instance in experts of this model.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Array.<Object>,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Array.<Object>} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Expert` object.)
+             * </em>
+             */
+        R.experts.createMany = function() {
+          var TargetResource = $injector.get("Expert");
+          var action = TargetResource["::createMany::Poll::experts"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Poll.experts#destroyAll
+             * @methodOf lbServices.Poll.experts
+             *
+             * @description
+             *
+             * Deletes all experts of this model.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * This method returns no data.
+             */
+        R.experts.destroyAll = function() {
+          var TargetResource = $injector.get("Expert");
+          var action = TargetResource["::delete::Poll::experts"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Poll.experts#destroyById
+             * @methodOf lbServices.Poll.experts
+             *
+             * @description
+             *
+             * Delete a related item by id for experts.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `fk` – `{*}` - Foreign key for experts
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * This method returns no data.
+             */
+        R.experts.destroyById = function() {
+          var TargetResource = $injector.get("Expert");
+          var action = TargetResource["::destroyById::Poll::experts"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Poll.experts#exists
+             * @methodOf lbServices.Poll.experts
+             *
+             * @description
+             *
+             * Check the existence of experts relation to an item by id.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `fk` – `{*}` - Foreign key for experts
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Expert` object.)
+             * </em>
+             */
+        R.experts.exists = function() {
+          var TargetResource = $injector.get("Expert");
+          var action = TargetResource["::exists::Poll::experts"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Poll.experts#findById
+             * @methodOf lbServices.Poll.experts
+             *
+             * @description
+             *
+             * Find a related item by id for experts.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `fk` – `{*}` - Foreign key for experts
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Expert` object.)
+             * </em>
+             */
+        R.experts.findById = function() {
+          var TargetResource = $injector.get("Expert");
+          var action = TargetResource["::findById::Poll::experts"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Poll.experts#link
+             * @methodOf lbServices.Poll.experts
+             *
+             * @description
+             *
+             * Add a related item by id for experts.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `fk` – `{*}` - Foreign key for experts
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Expert` object.)
+             * </em>
+             */
+        R.experts.link = function() {
+          var TargetResource = $injector.get("Expert");
+          var action = TargetResource["::link::Poll::experts"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Poll.experts#unlink
+             * @methodOf lbServices.Poll.experts
+             *
+             * @description
+             *
+             * Remove the experts relation to an item by id.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `fk` – `{*}` - Foreign key for experts
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * This method returns no data.
+             */
+        R.experts.unlink = function() {
+          var TargetResource = $injector.get("Expert");
+          var action = TargetResource["::unlink::Poll::experts"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Poll.experts#updateById
+             * @methodOf lbServices.Poll.experts
+             *
+             * @description
+             *
+             * Update a related item by id for experts.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `fk` – `{*}` - Foreign key for experts
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Expert` object.)
+             * </em>
+             */
+        R.experts.updateById = function() {
+          var TargetResource = $injector.get("Expert");
+          var action = TargetResource["::updateById::Poll::experts"];
+          return action.apply(R, arguments);
+        };
+    /**
+     * @ngdoc object
+     * @name lbServices.Poll.results
+     * @header lbServices.Poll.results
+     * @object
+     * @description
+     *
+     * The object `Poll.results` groups methods
+     * manipulating `Result` instances related to `Poll`.
+     *
+     * Call {@link lbServices.Poll#results Poll.results()}
+     * to query all related instances.
+     */
+
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Poll#results
+             * @methodOf lbServices.Poll
+             *
+             * @description
+             *
+             * Queries results of Poll.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `filter` – `{object=}` -
+             *
+             * @param {function(Array.<Object>,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Array.<Object>} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Result` object.)
+             * </em>
+             */
+        R.results = function() {
+          var TargetResource = $injector.get("Result");
+          var action = TargetResource["::get::Poll::results"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Poll.results#count
+             * @methodOf lbServices.Poll.results
+             *
+             * @description
+             *
+             * Counts results of Poll.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `where` – `{object=}` - Criteria to match model instances
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * Data properties:
+             *
+             *  - `count` – `{number=}` -
+             */
+        R.results.count = function() {
+          var TargetResource = $injector.get("Result");
+          var action = TargetResource["::count::Poll::results"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Poll.results#create
+             * @methodOf lbServices.Poll.results
+             *
+             * @description
+             *
+             * Creates a new instance in results of this model.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Result` object.)
+             * </em>
+             */
+        R.results.create = function() {
+          var TargetResource = $injector.get("Result");
+          var action = TargetResource["::create::Poll::results"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Poll.results#createMany
+             * @methodOf lbServices.Poll.results
+             *
+             * @description
+             *
+             * Creates a new instance in results of this model.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Array.<Object>,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Array.<Object>} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Result` object.)
+             * </em>
+             */
+        R.results.createMany = function() {
+          var TargetResource = $injector.get("Result");
+          var action = TargetResource["::createMany::Poll::results"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Poll.results#destroyAll
+             * @methodOf lbServices.Poll.results
+             *
+             * @description
+             *
+             * Deletes all results of this model.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * This method returns no data.
+             */
+        R.results.destroyAll = function() {
+          var TargetResource = $injector.get("Result");
+          var action = TargetResource["::delete::Poll::results"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Poll.results#destroyById
+             * @methodOf lbServices.Poll.results
+             *
+             * @description
+             *
+             * Delete a related item by id for results.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `fk` – `{*}` - Foreign key for results
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * This method returns no data.
+             */
+        R.results.destroyById = function() {
+          var TargetResource = $injector.get("Result");
+          var action = TargetResource["::destroyById::Poll::results"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Poll.results#findById
+             * @methodOf lbServices.Poll.results
+             *
+             * @description
+             *
+             * Find a related item by id for results.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `fk` – `{*}` - Foreign key for results
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Result` object.)
+             * </em>
+             */
+        R.results.findById = function() {
+          var TargetResource = $injector.get("Result");
+          var action = TargetResource["::findById::Poll::results"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Poll.results#updateById
+             * @methodOf lbServices.Poll.results
+             *
+             * @description
+             *
+             * Update a related item by id for results.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `fk` – `{*}` - Foreign key for results
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Result` object.)
+             * </em>
+             */
+        R.results.updateById = function() {
+          var TargetResource = $injector.get("Result");
+          var action = TargetResource["::updateById::Poll::results"];
+          return action.apply(R, arguments);
+        };
+
+
+        return R;
+      }]);
+
+/**
+ * @ngdoc object
+ * @name lbServices.Result
+ * @header lbServices.Result
+ * @object
+ *
+ * @description
+ *
+ * A $resource object for interacting with the `Result` model.
+ *
+ * ## Example
+ *
+ * See
+ * {@link http://docs.angularjs.org/api/ngResource.$resource#example $resource}
+ * for an example of using this object.
+ *
+ */
+  module.factory(
+    "Result",
+    [
+      'LoopBackResource', 'LoopBackAuth', '$injector',
+      function(Resource, LoopBackAuth, $injector) {
+        var R = Resource(
+        urlBase + "/Results/:id",
+          { 'id': '@id' },
+          {
+
+            // INTERNAL. Use Result.expert() instead.
+            "prototype$__get__expert": {
+              url: urlBase + "/Results/:id/expert",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Result.poll() instead.
+            "prototype$__get__poll": {
+              url: urlBase + "/Results/:id/poll",
+              method: "GET",
+            },
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Result#create
+             * @methodOf lbServices.Result
+             *
+             * @description
+             *
+             * Create a new instance of the model and persist it into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *   This method does not accept any parameters.
+             *   Supply an empty object or omit this argument altogether.
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Result` object.)
+             * </em>
+             */
+            "create": {
+              url: urlBase + "/Results",
+              method: "POST",
+            },
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Result#createMany
+             * @methodOf lbServices.Result
+             *
+             * @description
+             *
+             * Create a new instance of the model and persist it into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *   This method does not accept any parameters.
+             *   Supply an empty object or omit this argument altogether.
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Array.<Object>,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Array.<Object>} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Result` object.)
+             * </em>
+             */
+            "createMany": {
+              isArray: true,
+              url: urlBase + "/Results",
+              method: "POST",
+            },
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Result#upsert
+             * @methodOf lbServices.Result
+             *
+             * @description
+             *
+             * Patch an existing model instance or insert a new one into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *   This method does not accept any parameters.
+             *   Supply an empty object or omit this argument altogether.
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Result` object.)
+             * </em>
+             */
+            "upsert": {
+              url: urlBase + "/Results",
+              method: "PUT",
+            },
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Result#replaceOrCreate
+             * @methodOf lbServices.Result
+             *
+             * @description
+             *
+             * Replace an existing model instance or insert a new one into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *   This method does not accept any parameters.
+             *   Supply an empty object or omit this argument altogether.
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Result` object.)
+             * </em>
+             */
+            "replaceOrCreate": {
+              url: urlBase + "/Results/replaceOrCreate",
+              method: "POST",
+            },
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Result#upsertWithWhere
+             * @methodOf lbServices.Result
+             *
+             * @description
+             *
+             * Update an existing model instance or insert a new one into the data source based on the where criteria.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `where` – `{object=}` - Criteria to match model instances
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Result` object.)
+             * </em>
+             */
+            "upsertWithWhere": {
+              url: urlBase + "/Results/upsertWithWhere",
+              method: "POST",
+            },
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Result#exists
+             * @methodOf lbServices.Result
+             *
+             * @description
+             *
+             * Check whether a model instance exists in the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Model id
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * Data properties:
+             *
+             *  - `exists` – `{boolean=}` -
+             */
+            "exists": {
+              url: urlBase + "/Results/:id/exists",
+              method: "GET",
+            },
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Result#findById
+             * @methodOf lbServices.Result
+             *
+             * @description
+             *
+             * Find a model instance by {{id}} from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Model id
+             *
+             *  - `filter` – `{object=}` - Filter defining fields and include
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Result` object.)
+             * </em>
+             */
+            "findById": {
+              url: urlBase + "/Results/:id",
+              method: "GET",
+            },
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Result#replaceById
+             * @methodOf lbServices.Result
+             *
+             * @description
+             *
+             * Replace attributes for a model instance and persist it into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Model id
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Result` object.)
+             * </em>
+             */
+            "replaceById": {
+              url: urlBase + "/Results/:id/replace",
+              method: "POST",
+            },
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Result#find
+             * @methodOf lbServices.Result
+             *
+             * @description
+             *
+             * Find all instances of the model matched by filter from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `filter` – `{object=}` - Filter defining fields, where, include, order, offset, and limit
+             *
+             * @param {function(Array.<Object>,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Array.<Object>} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Result` object.)
+             * </em>
+             */
+            "find": {
+              isArray: true,
+              url: urlBase + "/Results",
+              method: "GET",
+            },
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Result#findOne
+             * @methodOf lbServices.Result
+             *
+             * @description
+             *
+             * Find first instance of the model matched by filter from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `filter` – `{object=}` - Filter defining fields, where, include, order, offset, and limit
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Result` object.)
+             * </em>
+             */
+            "findOne": {
+              url: urlBase + "/Results/findOne",
+              method: "GET",
+            },
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Result#updateAll
+             * @methodOf lbServices.Result
+             *
+             * @description
+             *
+             * Update instances of the model matched by {{where}} from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `where` – `{object=}` - Criteria to match model instances
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * The number of instances updated
+             */
+            "updateAll": {
+              url: urlBase + "/Results/update",
+              method: "POST",
+            },
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Result#deleteById
+             * @methodOf lbServices.Result
+             *
+             * @description
+             *
+             * Delete a model instance by {{id}} from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Model id
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Result` object.)
+             * </em>
+             */
+            "deleteById": {
+              url: urlBase + "/Results/:id",
+              method: "DELETE",
+            },
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Result#count
+             * @methodOf lbServices.Result
+             *
+             * @description
+             *
+             * Count instances of the model matched by where from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `where` – `{object=}` - Criteria to match model instances
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * Data properties:
+             *
+             *  - `count` – `{number=}` -
+             */
+            "count": {
+              url: urlBase + "/Results/count",
+              method: "GET",
+            },
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Result#prototype$updateAttributes
+             * @methodOf lbServices.Result
+             *
+             * @description
+             *
+             * Patch attributes for a model instance and persist it into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Result` object.)
+             * </em>
+             */
+            "prototype$updateAttributes": {
+              url: urlBase + "/Results/:id",
+              method: "PUT",
+            },
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Result#createChangeStream
+             * @methodOf lbServices.Result
+             *
+             * @description
+             *
+             * Create a change stream.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *   This method does not accept any parameters.
+             *   Supply an empty object or omit this argument altogether.
+             *
+             * @param {Object} postData Request data.
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * Data properties:
+             *
+             *  - `changes` – `{ReadableStream=}` -
+             */
+            "createChangeStream": {
+              url: urlBase + "/Results/change-stream",
+              method: "POST",
+            },
+
+            // INTERNAL. Use Poll.results.findById() instead.
+            "::findById::Poll::results": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Polls/:id/results/:fk",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Poll.results.destroyById() instead.
+            "::destroyById::Poll::results": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Polls/:id/results/:fk",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use Poll.results.updateById() instead.
+            "::updateById::Poll::results": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Polls/:id/results/:fk",
+              method: "PUT",
+            },
+
+            // INTERNAL. Use Poll.results() instead.
+            "::get::Poll::results": {
+              isArray: true,
+              url: urlBase + "/Polls/:id/results",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Poll.results.create() instead.
+            "::create::Poll::results": {
+              url: urlBase + "/Polls/:id/results",
+              method: "POST",
+            },
+
+            // INTERNAL. Use Poll.results.createMany() instead.
+            "::createMany::Poll::results": {
+              isArray: true,
+              url: urlBase + "/Polls/:id/results",
+              method: "POST",
+            },
+
+            // INTERNAL. Use Poll.results.destroyAll() instead.
+            "::delete::Poll::results": {
+              url: urlBase + "/Polls/:id/results",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use Poll.results.count() instead.
+            "::count::Poll::results": {
+              url: urlBase + "/Polls/:id/results/count",
+              method: "GET",
+            },
+          }
+        );
+
+
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Result#patchOrCreate
+             * @methodOf lbServices.Result
+             *
+             * @description
+             *
+             * Patch an existing model instance or insert a new one into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *   This method does not accept any parameters.
+             *   Supply an empty object or omit this argument altogether.
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Result` object.)
+             * </em>
+             */
+        R["patchOrCreate"] = R["upsert"];
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Result#updateOrCreate
+             * @methodOf lbServices.Result
+             *
+             * @description
+             *
+             * Patch an existing model instance or insert a new one into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *   This method does not accept any parameters.
+             *   Supply an empty object or omit this argument altogether.
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Result` object.)
+             * </em>
+             */
+        R["updateOrCreate"] = R["upsert"];
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Result#patchOrCreateWithWhere
+             * @methodOf lbServices.Result
+             *
+             * @description
+             *
+             * Update an existing model instance or insert a new one into the data source based on the where criteria.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `where` – `{object=}` - Criteria to match model instances
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Result` object.)
+             * </em>
+             */
+        R["patchOrCreateWithWhere"] = R["upsertWithWhere"];
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Result#update
+             * @methodOf lbServices.Result
+             *
+             * @description
+             *
+             * Update instances of the model matched by {{where}} from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `where` – `{object=}` - Criteria to match model instances
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * The number of instances updated
+             */
+        R["update"] = R["updateAll"];
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Result#destroyById
+             * @methodOf lbServices.Result
+             *
+             * @description
+             *
+             * Delete a model instance by {{id}} from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Model id
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Result` object.)
+             * </em>
+             */
+        R["destroyById"] = R["deleteById"];
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Result#removeById
+             * @methodOf lbServices.Result
+             *
+             * @description
+             *
+             * Delete a model instance by {{id}} from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Model id
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Result` object.)
+             * </em>
+             */
+        R["removeById"] = R["deleteById"];
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Result#patchAttributes
+             * @methodOf lbServices.Result
+             *
+             * @description
+             *
+             * Patch attributes for a model instance and persist it into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Result` object.)
+             * </em>
+             */
+        R["patchAttributes"] = R["prototype$updateAttributes"];
+
+
+        /**
+        * @ngdoc property
+        * @name lbServices.Result#modelName
+        * @propertyOf lbServices.Result
+        * @description
+        * The name of the model represented by this $resource,
+        * i.e. `Result`.
+        */
+        R.modelName = "Result";
+
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Result#expert
+             * @methodOf lbServices.Result
+             *
+             * @description
+             *
+             * Fetches belongsTo relation expert.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `refresh` – `{boolean=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Expert` object.)
+             * </em>
+             */
+        R.expert = function() {
+          var TargetResource = $injector.get("Expert");
+          var action = TargetResource["::get::Result::expert"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Result#poll
+             * @methodOf lbServices.Result
+             *
+             * @description
+             *
+             * Fetches belongsTo relation poll.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `refresh` – `{boolean=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Poll` object.)
+             * </em>
+             */
+        R.poll = function() {
+          var TargetResource = $injector.get("Poll");
+          var action = TargetResource["::get::Result::poll"];
+          return action.apply(R, arguments);
+        };
 
 
         return R;

@@ -13,25 +13,29 @@ module.exports = function(Poll) {
 			}
 		},(err, results)=>{
 			if(err) return cb(err);
-		    var experts = results[0].experts();
-		    experts.forEach((expert,index)=>{
-		    	var emailData = {
-			      url_poll:"http://www.algo.com/fill-poll/"+id+"/expert/"+expert.id
-			    }; 
-			    var renderer = loopback.template(path.resolve(__dirname, '../../server/views/pollInvitation.ejs'));
-			    var html_body = renderer(emailData);
-		    	var options = {
-			      type: 'email',
-			      to: expert.email,
-			      from: 'noreply@sistemaexperto.com',
-			      subject: 'Encuesta desde Sistema Experto.',
-			      html: html_body,
-			    };
-		    	Poll.app.models.Email.send(options, function(err, mail) {
-					if(err) return cb(err);
+			results[0].investigation(function(err, investigation) {
+				console.log(investigation);
+			    investigation.experts(function(err, experts) {
+			    	experts.forEach((expert,index)=>{
+				    	var emailData = {
+					      url_poll:"http://localhost:8888/#/fill-poll/"+id+"/expert/"+expert.id
+					    }; 
+					    var renderer = loopback.template(path.resolve(__dirname, '../../server/views/pollInvitation.ejs'));
+					    var html_body = renderer(emailData);
+				    	var options = {
+					      type: 'email',
+					      to: expert.email,
+					      from: 'noreply@sistemaexperto.com',
+					      subject: 'Encuesta desde Sistema Experto.',
+					      html: html_body,
+					    };
+				    	Poll.app.models.Email.send(options, function(err, mail) {
+							if(err) return cb(err);
+						});
+				    });
+				    cb(null,experts);
 				});
-		    });
-		    cb(null,experts)
+			});
 		});
 	}
 
