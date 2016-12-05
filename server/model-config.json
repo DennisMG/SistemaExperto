@@ -49,7 +49,8 @@
     }
   },
   "Email": {
-    "dataSource": "EmailDatasource"
+    "dataSource": "mailgun",
+    "public": false
   },
   "Expert": {
     "dataSource": "SistemaExpertoDB",
