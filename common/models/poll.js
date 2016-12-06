@@ -13,22 +13,23 @@ module.exports = function(Poll) {
 			}
 		},(err, results)=>{
 			if(err) return cb(err);
+			console.log("results: ", results);
 			results[0].investigation(function(err, investigation) {
-				console.log(investigation);
+				console.log("INVESTIGATION: ",investigation);
 			    investigation.experts(function(err, experts) {
-
+			    	console.log("experts: ",experts);
 			    	experts.forEach((expert,index)=>{
 			    		console.log("send email to: ",expert);
 				    	var emailData = {
-					      url_poll:"http://localhost:8888/#/fill-poll/"+id+"/expert/"+expert.id
+					      url_poll:"https://rubricexpert.herokuapp.com/fill-poll/"+id+"/expert/"+expert.id
 					    }; 
 					    var renderer = loopback.template(path.resolve(__dirname, '../../server/views/pollInvitation.ejs'));
 					    var html_body = renderer(emailData);
 				    	var options = {
 					      to: expert.email,
-					      from: 'noreply@sistemaexperto.com',
-					      subject: 'Encuesta desde Sistema Experto.',
-					      html: "html <b>message</b>",
+					      from: 'noreply@rubricexpert.com',
+					      subject: 'Poll from Rubric Expert.',
+					      html: html_body,
 					    };
 				    	Poll.app.models.Email.send(options, function(err, mail) {
 				    		console.log("mail: ", mail);
@@ -50,7 +51,7 @@ module.exports = function(Poll) {
 		},(err, experts)=>{
 			if(err) return cb(err);
 		    var expertList = experts[0].experts();
-		    //console.log("expertList: ", expertList );
+		    console.log("expertList: ", expertList );
 
 		    var findExpertById = function(id, expertList){
 		    	var found = '';

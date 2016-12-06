@@ -16,23 +16,18 @@
     },
     "title": {
       "type": "string"
-
     },
     "type": {
       "type": "string"
-
     },
     "instructions": {
-      "type": "string"
-    },
-    "title": {
       "type": "string"
     },
     "sent": {
       "type": "boolean"
     },
-    "expiration_limit":{
-      "type":"date"
+    "expiration_limit": {
+      "type": "date"
     }
   },
   "validations": [],
@@ -64,7 +59,7 @@
     {
       "accessType": "*",
       "principalType": "ROLE",
-      "principalId": "$authenticated",
+      "principalId": "$unauthenticated",
       "permission": "ALLOW"
     }
   ],

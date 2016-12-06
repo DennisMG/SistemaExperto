@@ -23,9 +23,10 @@
     ]
   },
   "mailgun": {
-        "connector": "loopback-connector-mailgun",
-        "apikey": "key-8271939771784d1a661683a831f7adea",
-        "domain": "mg.rubric-expert.com"
+    "name": "mailgun",
+    "connector": "loopback-connector-mailgun",
+    "apikey": "key-8271939771784d1a661683a831f7adea",
+    "domain": "mg.rubric-expert.com"
   },
   "SistemaExpertoDB": {
     "host": "ds139567.mlab.com",

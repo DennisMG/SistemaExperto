@@ -18,11 +18,11 @@ module.exports = function(Account) {
     var options = {
       type: 'email',
       to: userInstance.email,
-      from: 'noreply@sistemaexperto.com',
+      from: 'noreply@rubricexpert.com',
       subject: 'Thanks for registering.',
       template: path.resolve(__dirname,'../../server/views/verify.ejs'), 
       redirect: '/verified',
-      verifyHref: 'http://localhost:3000/api/Accounts/confirm?uid='+userInstance.id+'&redirect=http://localhost:8888',
+      verifyHref: 'https://rubric-expert.herokuapp.com/api/Accounts/confirm?uid='+userInstance.id+'&redirect=https://rubricexpert.herokuapp.com/login',
       user: Account,
       text: '{href}'
 
