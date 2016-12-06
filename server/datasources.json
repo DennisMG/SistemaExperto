@@ -24,8 +24,8 @@
   },
   "mailgun": {
         "connector": "loopback-connector-mailgun",
-        "apikey": "pubkey-f9f7eb7546b8ce1aecdb4c2ee6d9940e",
-        "domain": "sandbox7b5c212814624a77ae1ce532feed0935.mailgun.org"
+        "apikey": "key-8271939771784d1a661683a831f7adea",
+        "domain": "mg.rubric-expert.com"
   },
   "SistemaExpertoDB": {
     "host": "ds139567.mlab.com",

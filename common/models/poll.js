@@ -16,20 +16,22 @@ module.exports = function(Poll) {
 			results[0].investigation(function(err, investigation) {
 				console.log(investigation);
 			    investigation.experts(function(err, experts) {
+
 			    	experts.forEach((expert,index)=>{
+			    		console.log("send email to: ",expert);
 				    	var emailData = {
 					      url_poll:"http://localhost:8888/#/fill-poll/"+id+"/expert/"+expert.id
 					    }; 
 					    var renderer = loopback.template(path.resolve(__dirname, '../../server/views/pollInvitation.ejs'));
 					    var html_body = renderer(emailData);
 				    	var options = {
-					      type: 'email',
 					      to: expert.email,
 					      from: 'noreply@sistemaexperto.com',
 					      subject: 'Encuesta desde Sistema Experto.',
-					      html: html_body,
+					      html: "html <b>message</b>",
 					    };
 				    	Poll.app.models.Email.send(options, function(err, mail) {
+				    		console.log("mail: ", mail);
 							if(err) return cb(err);
 						});
 				    });
