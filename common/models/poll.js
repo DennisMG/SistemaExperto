@@ -13,11 +13,11 @@ module.exports = function(Poll) {
 			}
 		},(err, results)=>{
 			if(err) return cb(err);
-			console.log("results: ", results);
+			//console.log("results: ", results);
 			results[0].investigation(function(err, investigation) {
-				console.log("INVESTIGATION: ",investigation);
+				//console.log("INVESTIGATION: ",investigation);
 			    investigation.experts(function(err, experts) {
-			    	console.log("experts: ",experts);
+			    	//console.log("experts: ",experts);
 			    	experts.forEach((expert,index)=>{
 			    		console.log("send email to: ",expert);
 				    	var emailData = {
@@ -130,11 +130,9 @@ module.exports = function(Poll) {
 
 
 		});
-		
-		
-		
-		
 	}
+
+
 
 	Poll.remoteMethod (
         'sendEmails',

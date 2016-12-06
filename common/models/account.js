@@ -25,8 +25,6 @@ module.exports = function(Account) {
       verifyHref: 'https://rubric-expert.herokuapp.com/api/Accounts/confirm?uid='+userInstance.id+'&redirect=https://rubricexpert.herokuapp.com/login',
       user: Account,
       text: '{href}'
-
-
     };
 
 
