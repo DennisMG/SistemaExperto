@@ -26,6 +26,11 @@
     "frontcoverphoto": {
       "type": "Buffer"
     },
+    "notes": {
+      "type": [
+        "string"
+      ]
+    },
     "profilephoto": {
       "type": "Buffer"
     }
