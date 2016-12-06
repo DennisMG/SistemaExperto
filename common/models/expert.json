@@ -19,9 +19,9 @@
     "job_position": {
       "type": "string"
     },
-    "workplace":{
-        "type": "string"
-      },
+    "workplace": {
+      "type": "string"
+    },
     "years_experience": {
       "type": "number"
     },
