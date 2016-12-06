@@ -1,12 +1,12 @@
-
-    var kappaFleis = function(lines){
+// Subjets = Dimensiones
+// Categories = 2 (importante y no importante)
+    var kappaFleiss = function(lines){
         var lineCount = lines.length;
         var columnCount = lines[0].length;
         var firstLine = true;
         var columnSums = new Array(columnCount);//[columnCount]
             for (var i = columnSums.length - 1; i >= 0; i--) {
                 columnSums[i] = 0;
-                console.log("seteamos en 0: "+columnSums[i]);
             };
         var lineConformities = new Array(lineCount);//[lineCount]
         for (var i = lineConformities.length - 1; i >= 0; i--) {
@@ -41,44 +41,20 @@
         for (var columnSum = 0;  columnSum < columnSums.length; columnSum++) columnWeightSquareSum += Math.pow(columnSums[columnSum]/lineSum/lineCount,2);
         var averageConformity=0;
         
-        for (var lineConformity = 0; lineConformity < lineConformities.length ; lineConformity++) averageConformity += lineConformities[lineConformity]/lineNumber;
-
-        return (averageConformity-columnWeightSquareSum)/(1-columnWeightSquareSum).toFixed(2);
+        for (var lineConformity = 0; lineConformity < lineConformities.length ; lineConformity++) {averageConformity += lineConformities[lineConformity]/lineNumber; console.log( "averageConformity: "+averageConformity );}
+        console.log( "averageConformity: "+averageConformity );
+        console.log( "columnWeightSquareSum: "+columnWeightSquareSum );
+        return (averageConformity-columnWeightSquareSum)/(1-columnWeightSquareSum);
     }
 
 
-    var test = [
-                [0,0,0,0,14],
-                [0,2,6,4,2],
-                [0,0,3,5,6],
-                [0,3,9,2,0],
-                [2,2,8,1,1],
-                [7,7,0,0,0],
-                [3,2,6,3,0],
-                [2,5,3,2,2],
-                [6,5,2,1,0],
-                [0,2,2,3,7]
-                ]
-
-  [0,0,0,0,14],
-  [0,2,6,4,2 ],
-  [0,0,3,5,6 ],
-  [0,3,9,2,0 ],
-  [2,2,8,1,1 ],
-  [7,7,0,0,0 ],
-  [3,2,6,3,0 ],
-  [2,5,3,2,2 ],
-  [6,5,2,1,0 ],
-  [0,2,2,3,7 ],
-
+    // var test = [  [2,0],
+    //               [0,2],
+    //               [2,0]
+                  
+    //               ];
             
-            // test = [
-            //     [2,0,0],
-            //     [0,2,0],
-            //     [0,2,0],
-            //     [2,0,0]
-            //     ]
-            
-    var result = kappaFleis(test);
+    // var result = kappaFleis(test);
 
-    console.log(result);
+    // console.log(result);
+module.exports = kappaFleiss;
