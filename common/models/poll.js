@@ -13,10 +13,11 @@ module.exports = function(Poll) {
 			}
 		},(err, results)=>{
 			if(err) return cb(err);
+			console.log("results: ", results);
 			results[0].investigation(function(err, investigation) {
 				console.log(investigation);
 			    investigation.experts(function(err, experts) {
-
+			    	console.log("experts: ",experts);
 			    	experts.forEach((expert,index)=>{
 			    		console.log("send email to: ",expert);
 				    	var emailData = {
@@ -50,7 +51,7 @@ module.exports = function(Poll) {
 		},(err, experts)=>{
 			if(err) return cb(err);
 		    var expertList = experts[0].experts();
-		    //console.log("expertList: ", expertList );
+		    console.log("expertList: ", expertList );
 
 		    var findExpertById = function(id, expertList){
 		    	var found = '';
