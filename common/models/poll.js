@@ -15,7 +15,7 @@ module.exports = function(Poll) {
 			if(err) return cb(err);
 			console.log("results: ", results);
 			results[0].investigation(function(err, investigation) {
-				console.log(investigation);
+				console.log("INVESTIGATION: ",investigation);
 			    investigation.experts(function(err, experts) {
 			    	console.log("experts: ",experts);
 			    	experts.forEach((expert,index)=>{
@@ -27,9 +27,9 @@ module.exports = function(Poll) {
 					    var html_body = renderer(emailData);
 				    	var options = {
 					      to: expert.email,
-					      from: 'noreply@sistemaexperto.com',
-					      subject: 'Encuesta desde Sistema Experto.',
-					      html: "html <b>message</b>",
+					      from: 'noreply@rubricexpert.com',
+					      subject: 'Poll from Rubric Expert.',
+					      html: html_body,
 					    };
 				    	Poll.app.models.Email.send(options, function(err, mail) {
 				    		console.log("mail: ", mail);
