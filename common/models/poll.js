@@ -13,13 +13,9 @@ module.exports = function(Poll) {
 			}
 		},(err, results)=>{
 			if(err) return cb(err);
-			//console.log("results: ", results);
 			results[0].investigation(function(err, investigation) {
-				//console.log("INVESTIGATION: ",investigation);
 			    investigation.experts(function(err, experts) {
-			    	//console.log("experts: ",experts);
 			    	experts.forEach((expert,index)=>{
-			    		console.log("send email to: ",expert);
 				    	var emailData = {
 					      url_poll:"https://rubricexpert.herokuapp.com/fill-poll/"+id+"/expert/"+expert.id
 					    }; 
@@ -32,7 +28,6 @@ module.exports = function(Poll) {
 					      html: html_body,
 					    };
 				    	Poll.app.models.Email.send(options, function(err, mail) {
-				    		console.log("mail: ", mail);
 							if(err) return cb(err);
 						});
 				    });
@@ -50,16 +45,13 @@ module.exports = function(Poll) {
 			}
 		},(err, experts)=>{
 			if(err) return cb(err);
+
 		    var expertList = experts[0].experts();
-		    console.log("expertList: ", expertList );
 
 		    var findExpertById = function(id, expertList){
 		    	var found = '';
 		    	for(var i = 0 ; i < expertList.length; i++){
-		    		// console.log( "find: "+ id+" == "+  expertList[i].id);
-		    		// console.log( "RESULT: "+ expertList[i].id === id );
 		    		if(id.equals(expertList[i].id)){
-		    			// console.log("FOUND!: ", expertList[i] );
 		    			found = expertList[i];
 		    			break;
 		    		}
@@ -76,20 +68,21 @@ module.exports = function(Poll) {
 				}
 			},(err, results)=>{
 				if(err) return cb(err);
-			    //console.log("results1: ",results);
 			    var results = results[0].results();
 			    
 			    var observations = [];
 				for (var i = 0; i < results.length; i++) {
 					if(results[i].answers){
 						var observation = [results[i].expertId];
-						observation = (observation.concat(results[i].answers));
+						// console.log("observation: ", results[i].answers[i].String);
+						observation = (observation.concat(results[i].answers.map((obs)=>obs.value)));
 						observations.push(observation);
 					}
 				};
-			     //console.log(observations);
+			     // console.log(observations);
 			     if(results.length == 0)
 			     	return cb(null,{});
+			     console.log("observations: ",observations);
 			     var engine = new InferenceEngine({
 						file_name: 'test',
 						data: observations,
@@ -103,7 +96,7 @@ module.exports = function(Poll) {
 				var biggestCluster = engine.getMainCluster();
 				var vectors = engine.getVectors();
 
-				console.log( "vectors: ",vectors );
+				// console.log( "vectors: ",vectors );
 				var finalExperts = [];
 
 				for(var i=0; i<vectors.length;i++){
@@ -119,7 +112,7 @@ module.exports = function(Poll) {
 						agreedExperts.push(found);
 				}
 
-				console.log( agreedExperts );
+				// console.log( agreedExperts );
 
 				var response = {
 					kendallsW: kendallsW,
@@ -133,22 +126,36 @@ module.exports = function(Poll) {
 	}
 
 
+	Poll.getConcordance = function(id, cb){
 
-	Poll.remoteMethod (
+	}
+
+
+
+	Poll.remoteMethod(
         'sendEmails',
         {
-          http: {path: '/:id/sendEmails', verb: 'get'},
-          accepts: {arg: 'id', type: 'string'},
-          returns: {arg: 'data', type: 'array'}
+        	http: { path: '/:id/sendEmails', verb: 'get'},
+        	accepts: {arg: 'id', type: 'string'},
+        	returns: {arg: 'data', type: 'array'}
         }
     );
 
-    Poll.remoteMethod (
+    Poll.remoteMethod(
         'getSuggestions',
         {
-          http: {path: '/:id/getSuggestions', verb: 'get'},
-          accepts: {arg: 'id', type: 'string'},
-          returns: {arg: 'data', type: 'Object'}
+        	http: { path: '/:id/getSuggestions', verb: 'get'},
+        	accepts: { arg: 'id', type: 'string'},
+        	returns: { arg: 'data', type: 'Object'}
         }
+    );
+
+    Poll.remoteMethod(
+    	'getConcordance',
+    	{
+    		http: { path: '/:id/getConcordance', verb: 'get'},
+         	accepts: { arg: 'id', type: 'string'},
+          	returns: { arg: 'data', type: 'Object'}
+    	}
     );
 };

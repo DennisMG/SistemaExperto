@@ -48,13 +48,13 @@
     }
 
 
-    // var test = [  [2,0],
-    //               [0,2],
-    //               [2,0]
+    var test = [  [2,0],
+                  [0,2],
+                  [2,0]
                   
-    //               ];
+                  ];
             
-    // var result = kappaFleis(test);
+    var result = kappaFleiss(test);
 
-    // console.log(result);
+    console.log(result);
 module.exports = kappaFleiss;

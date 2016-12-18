@@ -129,6 +129,8 @@ coreEngine.prototype.getBiggestCluster = function (cluster_results) {
 };
 
 coreEngine.prototype.extractData = function(file) {
+	console.log("extractParticipants: ",this.extractParticipants(file));
+	console.log("extractExperts: ",this.extractExperts(file));
 	return {
 		experts: this.extractExperts(file),
 		participants: this.extractParticipants(file),
@@ -164,7 +166,9 @@ coreEngine.prototype.extractParticipants = function(file) {
 		return ret_val;
 	}
 
-	return ret_val.sort(function(a, b) { return a.localeCompare(b); });
+	return ret_val.sort(function(a, b) { 
+		return a.localeCompare(b); 
+	});
 };
 
 coreEngine.prototype.extractClassifications = function(file) {
