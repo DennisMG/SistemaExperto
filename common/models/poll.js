@@ -38,7 +38,8 @@ module.exports = function(Poll) {
 	}
 
 	Poll.getSuggestions = function(pollId, cb){
-		Poll.find({
+		try{
+			Poll.find({
 			include: 'experts',
 			where:{
 				id: pollId
@@ -47,7 +48,11 @@ module.exports = function(Poll) {
 			if(err) return cb(err);
 
 		    var expertList = experts[0].experts();
-
+		    if(expertList.length === 0){
+		    	var error = new Error("There are no experts assigned to this poll");
+				error.status = 404;
+				return cb(error);
+		    }
 		    var findExpertById = function(id, expertList){
 		    	var found = '';
 		    	for(var i = 0 ; i < expertList.length; i++){
@@ -69,7 +74,11 @@ module.exports = function(Poll) {
 			},(err, results)=>{
 				if(err) return cb(err);
 			    var results = results[0].results();
-			    
+			    if(results.length === 0){
+			    	var error = new Error("There are 0 results for this poll");
+					error.status = 404;
+					return cb(error);
+			    }
 			    var observations = [];
 				for (var i = 0; i < results.length; i++) {
 					if(results[i].answers){
@@ -120,14 +129,26 @@ module.exports = function(Poll) {
 				};
 			    cb(null,response)
 			});
-
-
 		});
+		}catch(e){
+
+		}
 	}
 
 
 	Poll.getConcordance = function(id, cb){
-
+		Poll.find({
+			include: ['results'],
+			where:{ id: id }
+		},(err, results)=>{
+			if(err) return cb(err);
+			console.log("results: ", results[0]);
+			if(results[0].type !== '2'){
+				var error = new Error("This Poll does not support concordance calculation. Should be type 2");
+				error.status = 422;
+				return cb(error);
+			}
+		});
 	}
 
 
