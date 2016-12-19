@@ -3,8 +3,11 @@ var config = require('../../server/config.json');
 var path = require('path');
 var loopback = require("loopback");
 var InferenceEngine = require('../../InferenceEngine/coreEngine');
+var kappaFleiss = require('../../InferenceEngine/FleissKappa');
 
 module.exports = function(Poll) {
+	var app = require('../../server/server');
+
 	Poll.sendEmails = function(id, cb){
 		var experts = Poll.find({
 			include: 'experts',
@@ -135,21 +138,84 @@ module.exports = function(Poll) {
 		}
 	}
 
+	function fillArray(arr){
+		for (var i = arr.length - 1; i >= 0; i--) {
+			for (var x = arr[i].length - 1; x >= 0; x--) {
+				arr[i][x] = 0;
+			};
+		};
+	}
+
+
+	function createArray(length) {
+	    var arr = new Array(length || 0),
+	        i = length;
+
+	    if (arguments.length > 1) {
+	        var args = Array.prototype.slice.call(arguments, 1);
+	        while(i--) arr[length-1 - i] = createArray.apply(this, args);
+	    }
+
+	    return arr;
+	}
+
+	var extractDimensionCount = function(variableArray){
+		var totalDimensions = 0;
+		for (var i = 0; i < variableArray.length; i++) {
+			totalDimensions += variableArray[i].length; 
+		};
+		return totalDimensions;
+	}
+
+	var addImportant = function(isImportant, rowId, matrix){
+		if(isImportant)
+			matrix[rowId][0]++;
+		else
+			matrix[rowId][1]++;
+	}
+
+	var addResultsToMatrix = function(pollAnswers, matrix){
+		var currentDimension = 0;
+		pollAnswers.map((variableAnswers, idx)=>{
+			variableAnswers.map((dimension, idx)=>{
+				addImportant(dimension.important, currentDimension, matrix);
+				currentDimension++;
+			});
+		});
+	}
+
+	var countResults = function(results){
+		var dimensionCount = extractDimensionCount(results[0].answers);
+		var optionsCount = 2;
+		var finalResults = createArray(dimensionCount, optionsCount);
+		fillArray(finalResults);
+		var experts = results;
+		for (var i = 0; i < results.length; i++) {
+			addResultsToMatrix(experts[i].answers, finalResults);
+		};
+
+		//5856434062fdbe1100777ebe
+		return finalResults;
+
+	}
+
 
 	Poll.getConcordance = function(id, cb){
 		Poll.find({
 			include: ['results'],
 			where:{ id: id }
-		},(err, results)=>{
+		},(err, poll)=>{
 			if(err) return cb(err);
-			console.log("results: ", results[0]);
-			if(results[0].type !== '2'){
+			var results=poll[0].results();
+			if(poll[0].type !== '2'){
 				var error = new Error("This Poll does not support concordance calculation. Should be type 2");
 				error.status = 422;
 				return cb(error);
 			}
-		});
-	}
+
+			var arrayResults = countResults(results);
+			cb(null,kappaFleiss(arrayResults))
+	})}
 
 
 
@@ -176,7 +242,7 @@ module.exports = function(Poll) {
     	{
     		http: { path: '/:id/getConcordance', verb: 'get'},
          	accepts: { arg: 'id', type: 'string'},
-          	returns: { arg: 'data', type: 'Object'}
+          	returns: { arg: 'kappa', type: 'Object'}
     	}
     );
 };

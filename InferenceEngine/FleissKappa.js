@@ -41,20 +41,18 @@
         for (var columnSum = 0;  columnSum < columnSums.length; columnSum++) columnWeightSquareSum += Math.pow(columnSums[columnSum]/lineSum/lineCount,2);
         var averageConformity=0;
         
-        for (var lineConformity = 0; lineConformity < lineConformities.length ; lineConformity++) {averageConformity += lineConformities[lineConformity]/lineNumber; console.log( "averageConformity: "+averageConformity );}
-        console.log( "averageConformity: "+averageConformity );
-        console.log( "columnWeightSquareSum: "+columnWeightSquareSum );
+        for (var lineConformity = 0; lineConformity < lineConformities.length ; lineConformity++) {averageConformity += lineConformities[lineConformity]/lineNumber;}
         return (averageConformity-columnWeightSquareSum)/(1-columnWeightSquareSum);
     }
 
 
-    var test = [  [2,0],
-                  [0,2],
-                  [2,0]
+    // var test = [  [2,0],
+    //               [0,2],
+    //               [2,0]
                   
-                  ];
+    //               ];
             
-    var result = kappaFleiss(test);
+    // var result = kappaFleiss(test);
 
-    console.log(result);
+    // console.log(result);
 module.exports = kappaFleiss;
