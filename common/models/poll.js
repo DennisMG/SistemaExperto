@@ -16,8 +16,10 @@ module.exports = function(Poll) {
 			}
 		},(err, results)=>{
 			if(err) return cb(err);
+			console.log("RESULTS",results[0]);
 			results[0].investigation(function(err, investigation) {
 			    investigation.experts(function(err, experts) {
+			    	console.log("EXPERTS: ",experts);
 			    	experts.forEach((expert,index)=>{
 				    	var emailData = {
 					      url_poll:"https://rubricexpert.herokuapp.com/fill-poll/"+id+"/expert/"+expert.id
@@ -217,6 +219,46 @@ module.exports = function(Poll) {
 			cb(null,kappaFleiss(arrayResults))
 	})}
 
+	Poll.sendEmailsToExperts = function(pollId, expertList, cb){
+		// console.log("pollID:", pollId);
+		// console.log("expertList: ", expertList);
+		var experts = Poll.find({
+			include: 'experts',
+			where:{
+				id: pollId
+			}
+		},(err, results)=>{
+			if(err) return cb(err);
+			console.log("RESULTS",results[0]);
+			results[0].investigation(function(err, investigation) {
+			    investigation.experts(function(err, experts) {
+			    	console.log("EXPERTS: ",experts);
+
+			    	experts.forEach((expert,index)=>{
+			    		if(expertList.indexOf(expert.id) < 0){
+			    			return;
+			    		}
+				    	var emailData = {
+					      url_poll:"https://rubricexpert.herokuapp.com/fill-poll/"+id+"/expert/"+expert.id
+					    }; 
+					    var renderer = loopback.template(path.resolve(__dirname, '../../server/views/pollInvitation.ejs'));
+					    var html_body = renderer(emailData);
+				    	var options = {
+					      to: expert.email,
+					      from: 'noreply@rubricexpert.com',
+					      subject: 'Poll from Rubric Expert.',
+					      html: html_body,
+					    };
+				    	Poll.app.models.Email.send(options, function(err, mail) {
+							if(err) return cb(err);
+						});
+				    });
+				    cb(null,experts);
+				});
+			});
+		});
+	}
+
 
 
 	Poll.remoteMethod(
@@ -224,6 +266,15 @@ module.exports = function(Poll) {
         {
         	http: { path: '/:id/sendEmails', verb: 'get'},
         	accepts: {arg: 'id', type: 'string'},
+        	returns: {arg: 'data', type: 'array'}
+        }
+    );
+
+    Poll.remoteMethod(
+        'sendEmailsToExperts',
+        {
+        	http: { path: '/:pollId/sendEmailsToExperts', verb: 'post'},
+        	accepts: [{arg: 'pollId', type: 'string'},{arg: 'expertList', type: 'array', http: { source: 'body' }}],
         	returns: {arg: 'data', type: 'array'}
         }
     );
