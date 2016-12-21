@@ -220,8 +220,6 @@ module.exports = function(Poll) {
 	})}
 
 	Poll.sendEmailsToExperts = function(pollId, expertList, cb){
-		// console.log("pollID:", pollId);
-		// console.log("expertList: ", expertList);
 		var experts = Poll.find({
 			include: 'experts',
 			where:{

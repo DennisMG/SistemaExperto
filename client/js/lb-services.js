@@ -811,9 +811,9 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
               method: "GET",
             },
 
-            // INTERNAL. Use Poll.investigations() instead.
-            "::get::Poll::investigations": {
-              url: urlBase + "/Polls/:id/investigations",
+            // INTERNAL. Use Poll.investigation() instead.
+            "::get::Poll::investigation": {
+              url: urlBase + "/Polls/:id/investigation",
               method: "GET",
             },
           }
@@ -4507,53 +4507,6 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
 
 /**
  * @ngdoc object
- * @name lbServices.Email
- * @header lbServices.Email
- * @object
- *
- * @description
- *
- * A $resource object for interacting with the `Email` model.
- *
- * ## Example
- *
- * See
- * {@link http://docs.angularjs.org/api/ngResource.$resource#example $resource}
- * for an example of using this object.
- *
- */
-  module.factory(
-    "Email",
-    [
-      'LoopBackResource', 'LoopBackAuth', '$injector',
-      function(Resource, LoopBackAuth, $injector) {
-        var R = Resource(
-        urlBase + "/Emails/:id",
-          { 'id': '@id' },
-          {
-          }
-        );
-
-
-
-
-        /**
-        * @ngdoc property
-        * @name lbServices.Email#modelName
-        * @propertyOf lbServices.Email
-        * @description
-        * The name of the model represented by this $resource,
-        * i.e. `Email`.
-        */
-        R.modelName = "Email";
-
-
-
-        return R;
-      }]);
-
-/**
- * @ngdoc object
  * @name lbServices.Expert
  * @header lbServices.Expert
  * @object
@@ -6029,9 +5982,9 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
           { 'id': '@id' },
           {
 
-            // INTERNAL. Use Poll.investigations() instead.
-            "prototype$__get__investigations": {
-              url: urlBase + "/Polls/:id/investigations",
+            // INTERNAL. Use Poll.investigation() instead.
+            "prototype$__get__investigation": {
+              url: urlBase + "/Polls/:id/investigation",
               method: "GET",
             },
 
@@ -6736,6 +6689,47 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
 
             /**
              * @ngdoc method
+             * @name lbServices.Poll#sendEmailsToExperts
+             * @methodOf lbServices.Poll
+             *
+             * @description
+             *
+             * <em>
+             * (The remote method definition does not provide any description.)
+             * </em>
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *   This method does not accept any parameters.
+             *   Supply an empty object or omit this argument altogether.
+             *
+             * @param {Object} postData Request data.
+             *
+             *  - `pollId` – `{string=}` -
+             *
+             *  - `expertList` – `{*=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * Data properties:
+             *
+             *  - `data` – `{*=}` -
+             */
+            "sendEmailsToExperts": {
+              url: urlBase + "/Polls/:pollId/sendEmailsToExperts",
+              method: "POST",
+            },
+
+            /**
+             * @ngdoc method
              * @name lbServices.Poll#getSuggestions
              * @methodOf lbServices.Poll
              *
@@ -6765,6 +6759,40 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              */
             "getSuggestions": {
               url: urlBase + "/Polls/:id/getSuggestions",
+              method: "GET",
+            },
+
+            /**
+             * @ngdoc method
+             * @name lbServices.Poll#getConcordance
+             * @methodOf lbServices.Poll
+             *
+             * @description
+             *
+             * <em>
+             * (The remote method definition does not provide any description.)
+             * </em>
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{string=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * Data properties:
+             *
+             *  - `kappa` – `{Object=}` -
+             */
+            "getConcordance": {
+              url: urlBase + "/Polls/:id/getConcordance",
               method: "GET",
             },
 
@@ -7166,12 +7194,12 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
 
             /**
              * @ngdoc method
-             * @name lbServices.Poll#investigations
+             * @name lbServices.Poll#investigation
              * @methodOf lbServices.Poll
              *
              * @description
              *
-             * Fetches belongsTo relation investigations.
+             * Fetches belongsTo relation investigation.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -7194,9 +7222,9 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              * This usually means the response is a `Investigation` object.)
              * </em>
              */
-        R.investigations = function() {
+        R.investigation = function() {
           var TargetResource = $injector.get("Investigation");
-          var action = TargetResource["::get::Poll::investigations"];
+          var action = TargetResource["::get::Poll::investigation"];
           return action.apply(R, arguments);
         };
     /**
