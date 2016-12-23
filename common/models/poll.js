@@ -169,23 +169,38 @@ module.exports = function(Poll) {
 	var extractDimensionCount = function(variableArray){
 		var totalDimensions = 0;
 		for (var i = 0; i < variableArray.length; i++) {
-			totalDimensions += variableArray[i].length; 
+			totalDimensions += variableArray[i].values.length; 
 		};
 		return totalDimensions;
 	}
 
-	var addImportant = function(isImportant, rowId, matrix){
-		if(isImportant)
+	var countVotes = function(dimension, variableId, dimensionVector){
+		var name = dimension.name+'_,'+variableId;
+
+		if(!dimensionVector[name])
+			dimensionVector[name] = 0;
+		if(dimension.important){
+			dimensionVector[name]++;
+		}
+	}
+
+	var addImportant = function(dimension, rowId, matrix, dimensionVector, variableId){
+		countVotes(dimension, variableId, dimensionVector);
+		if(dimension.important){
 			matrix[rowId][0]++;
-		else
+		}else
 			matrix[rowId][1]++;
 	}
 
-	var addResultsToMatrix = function(pollAnswers, matrix){
+	var addResultsToMatrix = function(pollAnswers, matrix, dimensionVector){
 		var currentDimension = 0;
+		var variables={};
+			
 		pollAnswers.map((variableAnswers, idx)=>{
-			variableAnswers.map((dimension, idx)=>{
-				addImportant(dimension.important, currentDimension, matrix);
+			variables[variableAnswers.variableId] = []
+			variableAnswers.values.map((dimension, idy)=>{
+
+				addImportant(dimension, currentDimension, matrix, dimensionVector,variableAnswers.variableId);
 				currentDimension++;
 			});
 		});
@@ -193,15 +208,58 @@ module.exports = function(Poll) {
 
 	var countResults = function(results){
 		var dimensionCount = extractDimensionCount(results[0].answers);
-		var optionsCount = 2;
+		var optionsCount = 2; // 2 because we only evaluate 'important' and 'not importante' 
 		var finalResults = createArray(dimensionCount, optionsCount);
+		var dimensionVector = {}
 		fillArray(finalResults);
 		var experts = results;
 		for (var i = 0; i < results.length; i++) {
-			addResultsToMatrix(experts[i].answers, finalResults);
+			addResultsToMatrix(experts[i].answers, finalResults, dimensionVector);
 		};
-		return finalResults;
+		return {kappaArray: finalResults, dimensionVector: dimensionVector};
 
+	}
+
+	var _updateDimensionVotes = function(variableId, dimensionName, newDimensions, variableVote){
+		newDimensions.map((dimension)=>{
+			if(dimension.name == dimensionName){
+				// console.log("seteo valor "+variableVote+" a la dimension "+dimensionName+" de la variable "+variableId);
+				dimension.votes = variableVote;
+			}
+		})
+	}
+
+	var updateVariables = function(variableVotes, poll){
+		Poll.app.models.Investigation.findOne({
+			include: ['variables'],
+			where:{ id: poll[0].investigationId }
+		}, (err, investigation)=>{
+			if(err) console.log(err);
+ 			var all = [];
+			var newDimensions;
+			investigation.variables().map((variableInstance)=>{
+				Object.keys(variableVotes).map((id)=>{
+					var str = id.split('_,');
+					var variableId = str[1];
+					var dimensionName = str[0];
+					newDimensions = variableInstance.dimensions.slice();
+					if(variableId == variableInstance.id){
+						_updateDimensionVotes(variableId, dimensionName, newDimensions, variableVotes[id]);
+					}					
+				})
+				var instanceVariable = variableInstance;
+				instanceVariable.dimensions = newDimensions;
+				Poll.app.models.Variable.updateAll({id: variableInstance.id },{dimensions:newDimensions},(err, cb)=>{
+					if(err) console.log(err);
+					console.log(cb);
+				})
+				console.log(newDimensions);
+				// console.log(all);
+			});
+			
+			
+		})
+		
 	}
 
 
@@ -217,9 +275,9 @@ module.exports = function(Poll) {
 				error.status = 422;
 				return cb(error);
 			}
-			console.log("RESULTS: ", results);
 			var arrayResults = countResults(results);
-			cb(null,kappaFleiss(arrayResults))
+			updateVariables(arrayResults.dimensionVector, poll);
+			cb(null,kappaFleiss(arrayResults.kappaArray))
 	})}
 
 	Poll.sendEmailsToExperts = function(pollId, expertList, cb){
@@ -254,7 +312,7 @@ module.exports = function(Poll) {
 							if(err) return cb(err);
 						});
 				    });
-				    cb(null,experts);
+				    cb(null, experts);
 				});
 			});
 		});
