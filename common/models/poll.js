@@ -51,6 +51,11 @@ module.exports = function(Poll) {
 			}
 		},(err, experts)=>{
 			if(err) return cb(err);
+			if(experts[0].type !== "1"){
+				var error = new Error("This Poll does not support agreement calculation. Should be type 1");
+				error.status = 422;
+				return cb(error);
+			}
 
 		    var expertList = experts[0].experts();
 		    if(expertList.length === 0){
@@ -195,8 +200,6 @@ module.exports = function(Poll) {
 		for (var i = 0; i < results.length; i++) {
 			addResultsToMatrix(experts[i].answers, finalResults);
 		};
-
-		//5856434062fdbe1100777ebe
 		return finalResults;
 
 	}
@@ -214,7 +217,7 @@ module.exports = function(Poll) {
 				error.status = 422;
 				return cb(error);
 			}
-
+			console.log("RESULTS: ", results);
 			var arrayResults = countResults(results);
 			cb(null,kappaFleiss(arrayResults))
 	})}
