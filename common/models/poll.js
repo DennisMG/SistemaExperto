@@ -288,11 +288,9 @@ module.exports = function(Poll) {
 			}
 		},(err, results)=>{
 			if(err) return cb(err);
-			console.log("RESULTS",results[0]);
+			// console.log("RESULTS",results[0]);
 			results[0].investigation(function(err, investigation) {
 			    investigation.experts(function(err, experts) {
-			    	console.log("EXPERTS: ",experts);
-
 			    	experts.forEach((expert,index)=>{
 			    		if(expertList.indexOf(expert.id) < 0){
 			    			return;
