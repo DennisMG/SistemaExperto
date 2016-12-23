@@ -94,7 +94,7 @@ module.exports = function(Poll) {
 					if(results[i].answers){
 						var observation = [results[i].expertId];
 						// console.log("observation: ", results[i].answers[i].String);
-						observation = (observation.concat(results[i].answers.map((obs)=>obs.value)));
+						observation = (observation.concat(results[i].answers.map((obs)=>obs["0"])));
 						observations.push(observation);
 					}
 				};
