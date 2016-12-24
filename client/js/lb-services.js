@@ -6796,6 +6796,40 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
               method: "GET",
             },
 
+            /**
+             * @ngdoc method
+             * @name lbServices.Poll#assignWeights
+             * @methodOf lbServices.Poll
+             *
+             * @description
+             *
+             * <em>
+             * (The remote method definition does not provide any description.)
+             * </em>
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{string=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * Data properties:
+             *
+             *  - `weights` – `{Object=}` -
+             */
+            "assignWeights": {
+              url: urlBase + "/Polls/:id/assignWeights",
+              method: "GET",
+            },
+
             // INTERNAL. Use Investigation.polls.findById() instead.
             "::findById::Investigation::polls": {
               params: {

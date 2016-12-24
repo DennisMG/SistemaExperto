@@ -11,6 +11,11 @@
         "object"
       ]
     },
+    "options": {
+      "type": [
+        "string"
+      ]
+    },
     "description": {
       "type": "string"
     },

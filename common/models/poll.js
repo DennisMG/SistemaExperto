@@ -4,6 +4,7 @@ var path = require('path');
 var loopback = require("loopback");
 var InferenceEngine = require('../../InferenceEngine/coreEngine');
 var kappaFleiss = require('../../InferenceEngine/FleissKappa');
+var weightAlgorithm = require('../../InferenceEngine/weightAlgorithm');
 
 module.exports = function(Poll) {
 	var app = require('../../server/server');
@@ -271,7 +272,7 @@ module.exports = function(Poll) {
 			if(err) return cb(err);
 			var results=poll[0].results();
 			if(poll[0].type !== '2'){
-				var error = new Error("This Poll does not support concordance calculation. Should be type 2");
+				var error = new Error("This Poll does not support concordance calculation. Should be type a Dichotomic Poll");
 				error.status = 422;
 				return cb(error);
 			}
@@ -316,7 +317,21 @@ module.exports = function(Poll) {
 		});
 	}
 
-
+	Poll.assignWeights = function(id, cb){
+		Poll.find({
+			include: ['results'],
+			where:{ id: id }
+		},(err, poll)=>{
+			if(err) return cb(err);
+			var results=poll[0].results();
+			if(poll[0].type !== '3'){
+				var error = new Error("This Poll does not support assigning weights. Should be a Likert Poll");
+				error.status = 422;
+				return cb(error);
+			}
+			var algorithm = new weightAlgorithm();
+			cb(null,algorithm.AssignWeights(results));
+	})}
 
 	Poll.remoteMethod(
         'sendEmails',
@@ -351,6 +366,15 @@ module.exports = function(Poll) {
     		http: { path: '/:id/getConcordance', verb: 'get'},
          	accepts: { arg: 'id', type: 'string'},
           	returns: { arg: 'kappa', type: 'Object'}
+    	}
+    );
+
+    Poll.remoteMethod(
+    	'assignWeights',
+    	{
+    		http: { path: '/:id/assignWeights', verb: 'get'},
+         	accepts: { arg: 'id', type: 'string'},
+          	returns: { arg: 'weights', type: 'Object'}
     	}
     );
 };
