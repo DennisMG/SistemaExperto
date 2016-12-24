@@ -16,20 +16,21 @@ module.exports = function(Poll) {
 			}
 		},(err, results)=>{
 			if(err) return cb(err);
-			console.log("RESULTS",results[0]);
 			results[0].investigation(function(err, investigation) {
+				console.log("investigation", investigation);
 			    investigation.experts(function(err, experts) {
-			    	console.log("EXPERTS: ",experts);
 			    	experts.forEach((expert,index)=>{
 				    	var emailData = {
-					      url_poll:"https://rubricexpert.herokuapp.com/fill-poll/"+id+"/expert/"+expert.id
+					      url_poll:"https://rubricexpert.herokuapp.com/fill-poll/"+id+"/expert/"+expert.id,
+					      descriptionMessage: investigation.description ? investigation.description : 'This researcher needs your knowledge, please answer the poll',
+					      investigationName: investigation.name
 					    }; 
 					    var renderer = loopback.template(path.resolve(__dirname, '../../server/views/pollInvitation.ejs'));
 					    var html_body = renderer(emailData);
 				    	var options = {
 					      to: expert.email,
 					      from: 'noreply@rubricexpert.com',
-					      subject: 'Poll from Rubric Expert.',
+					      subject: 'Poll '+investigation.name+' from Rubric Expert.',
 					      html: html_body,
 					    };
 				    	Poll.app.models.Email.send(options, function(err, mail) {
