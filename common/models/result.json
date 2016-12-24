@@ -10,6 +10,10 @@
       "type": [
         "object"
       ]
+    },
+    "iteration":{
+      "type": "number",
+      "default": 0
     }
   },
   "validations": [],
