@@ -33,6 +33,10 @@
     },
     "profilephoto": {
       "type": "Buffer"
+    },
+    "type":{
+      "type": "string",
+      "default": "rubric"
     }
   },
   "validations": [],
