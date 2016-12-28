@@ -23,7 +23,7 @@ module.exports = function(Poll) {
 			    	experts.forEach((expert,index)=>{
 				    	var emailData = {
 					      url_poll:"https://rubricexpert.herokuapp.com/fill-poll/"+id+"/expert/"+expert.id,
-					      descriptionMessage: investigation.description ? investigation.description : 'This researcher needs your knowledge, please answer the poll',
+					      descriptionMessage: investigation.description ? investigation.description : '',
 					      investigationName: investigation.name
 					    }; 
 					    var renderer = loopback.template(path.resolve(__dirname, '../../server/views/pollInvitation.ejs'));
