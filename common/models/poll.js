@@ -95,12 +95,11 @@ module.exports = function(Poll) {
 				for (var i = 0; i < results.length; i++) {
 					if(results[i].answers){
 						var observation = [results[i].expertId];
-						// console.log("observation: ", results[i].answers[i].String);
-						observation = (observation.concat(results[i].answers.map((obs)=>obs["0"])));
+						observation = (observation.concat(results[i].answers.map((obs)=>obs["value"])));
 						observations.push(observation);
 					}
 				};
-			     // console.log(observations);
+			     console.log(observations);
 			     if(results.length == 0)
 			     	return cb(null,{});
 			     console.log("observations: ",observations);
