@@ -18,7 +18,6 @@ module.exports = function(Poll) {
 		},(err, results)=>{
 			if(err) return cb(err);
 			results[0].investigation(function(err, investigation) {
-				console.log("poll", poll);
 			    investigation.experts(function(err, experts) {
 			    	experts.forEach((expert,index)=>{
 				    	var emailData = {
