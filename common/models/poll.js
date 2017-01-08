@@ -18,12 +18,12 @@ module.exports = function(Poll) {
 		},(err, results)=>{
 			if(err) return cb(err);
 			results[0].investigation(function(err, investigation) {
-				console.log("investigation", investigation);
+				console.log("poll", poll);
 			    investigation.experts(function(err, experts) {
 			    	experts.forEach((expert,index)=>{
 				    	var emailData = {
 					      url_poll:"https://rubricexpert.herokuapp.com/fill-poll/"+id+"/expert/"+expert.id,
-					      descriptionMessage: results.description ? results.description : '',
+					      descriptionMessage: results[0].description ? results[0].description : '',
 					      investigationName: investigation.name
 					    }; 
 					    var renderer = loopback.template(path.resolve(__dirname, '../../server/views/pollInvitation.ejs'));
