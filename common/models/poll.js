@@ -36,6 +36,7 @@ module.exports = function(Poll) {
 					    };
 				    	Poll.app.models.Email.send(options, function(err, mail) {
 							if(err) return cb(err);
+							expert.updateAttributes({send_poll: false});
 						});
 				    });
 				    cb(null,experts);
