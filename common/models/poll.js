@@ -23,7 +23,7 @@ module.exports = function(Poll) {
 			    	experts.forEach((expert,index)=>{
 				    	var emailData = {
 					      url_poll:"https://rubricexpert.herokuapp.com/fill-poll/"+id+"/expert/"+expert.id,
-					      descriptionMessage: investigation.description ? investigation.description : 'This researcher needs your knowledge, please answer the poll',
+					      descriptionMessage: investigation.description ? investigation.description : '',
 					      investigationName: investigation.name
 					    }; 
 					    var renderer = loopback.template(path.resolve(__dirname, '../../server/views/pollInvitation.ejs'));
@@ -96,12 +96,11 @@ module.exports = function(Poll) {
 				for (var i = 0; i < results.length; i++) {
 					if(results[i].answers){
 						var observation = [results[i].expertId];
-						// console.log("observation: ", results[i].answers[i].String);
-						observation = (observation.concat(results[i].answers.map((obs)=>obs["0"])));
+						observation = (observation.concat(results[i].answers.map((obs)=>obs["value"])));
 						observations.push(observation);
 					}
 				};
-			     // console.log(observations);
+			     console.log(observations);
 			     if(results.length == 0)
 			     	return cb(null,{});
 			     console.log("observations: ",observations);
