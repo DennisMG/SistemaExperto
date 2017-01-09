@@ -208,6 +208,7 @@ module.exports = function(Poll) {
 	}
 
 	var countResults = function(results){
+		console.log("RESULTS: ", results);
 		var dimensionCount = extractDimensionCount(results[0].answers);
 		var optionsCount = 2; // 2 because we only evaluate 'important' and 'not importante' 
 		var finalResults = createArray(dimensionCount, optionsCount);
@@ -276,6 +277,8 @@ module.exports = function(Poll) {
 				error.status = 422;
 				return cb(error);
 			}
+			if(results.length === 0)
+				return cb(null,0)
 			var arrayResults = countResults(results);
 			updateVariables(arrayResults.dimensionVector, poll);
 			cb(null,kappaFleiss(arrayResults.kappaArray))
