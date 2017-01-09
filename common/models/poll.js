@@ -18,12 +18,11 @@ module.exports = function(Poll) {
 		},(err, results)=>{
 			if(err) return cb(err);
 			results[0].investigation(function(err, investigation) {
-				console.log("investigation", investigation);
 			    investigation.experts(function(err, experts) {
 			    	experts.forEach((expert,index)=>{
 				    	var emailData = {
 					      url_poll:"https://rubricexpert.herokuapp.com/fill-poll/"+id+"/expert/"+expert.id,
-					      descriptionMessage: investigation.description ? investigation.description : '',
+					      descriptionMessage: results[0].description ? results[0].description : '',
 					      investigationName: investigation.name
 					    }; 
 					    var renderer = loopback.template(path.resolve(__dirname, '../../server/views/pollInvitation.ejs'));
@@ -36,6 +35,7 @@ module.exports = function(Poll) {
 					    };
 				    	Poll.app.models.Email.send(options, function(err, mail) {
 							if(err) return cb(err);
+							expert.updateAttributes({filled_poll: false});
 						});
 				    });
 				    cb(null,experts);
