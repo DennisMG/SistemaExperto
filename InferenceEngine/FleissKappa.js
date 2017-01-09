@@ -12,6 +12,7 @@
         for (var i = lineConformities.length - 1; i >= 0; i--) {
                 lineConformities[i] = 0;
             };
+            
         var lineSum=0;
         var lineNumber=0;
         for (var i = 0; i < lines.length; i++){
@@ -35,14 +36,20 @@
             firstLine=false;
         }
 
-
         if (columnCount==1 || lineSum==1) return 1.0;
         var columnWeightSquareSum=0;
-        for (var columnSum = 0;  columnSum < columnSums.length; columnSum++) columnWeightSquareSum += Math.pow(columnSums[columnSum]/lineSum/lineCount,2);
+        for (var columnSum = 0;  columnSum < columnSums.length; columnSum++) {
+            columnWeightSquareSum += Math.pow((columnSums[columnSum]/lineSum)/lineCount,2);
+        }
         var averageConformity=0;
         
-        for (var lineConformity = 0; lineConformity < lineConformities.length ; lineConformity++) {averageConformity += lineConformities[lineConformity]/lineNumber;}
-        return (averageConformity-columnWeightSquareSum)/(1-columnWeightSquareSum);
+        for (var lineConformity = 0; lineConformity < lineConformities.length ; lineConformity++) {
+            averageConformity += lineConformities[lineConformity]/lineNumber;
+        }
+        result = (averageConformity-columnWeightSquareSum)/(1-columnWeightSquareSum);
+        if(isNaN(result))
+            return 1.00;
+        return result;
     }
 
 

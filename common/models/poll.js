@@ -208,7 +208,6 @@ module.exports = function(Poll) {
 	}
 
 	var countResults = function(results){
-		console.log("RESULTS: ", results);
 		var dimensionCount = extractDimensionCount(results[0].answers);
 		var optionsCount = 2; // 2 because we only evaluate 'important' and 'not importante' 
 		var finalResults = createArray(dimensionCount, optionsCount);
@@ -280,8 +279,11 @@ module.exports = function(Poll) {
 			if(results.length === 0)
 				return cb(null,0)
 			var arrayResults = countResults(results);
+			console.log("arrayResults: ", arrayResults);
 			updateVariables(arrayResults.dimensionVector, poll);
-			cb(null,kappaFleiss(arrayResults.kappaArray))
+			var k = kappaFleiss(arrayResults.kappaArray);
+			console.log("KAPPA: ", k);
+			cb(null, k)
 	})}
 
 	Poll.sendEmailsToExperts = function(pollId, expertList, cb){
