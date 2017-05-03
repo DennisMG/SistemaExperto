@@ -31,7 +31,7 @@
   "SistemaExpertoDB": {
     "host": "ds139567.mlab.com",
     "port": 39567,
-    "url": "  mongodb://sistemaexpertoapi:sistemaexperto123@ds139567.mlab.com:39567/sistemaexpertodb",
+    "url": "mongodb://sistemaexpertoapi:sistemaexperto123@ds139567.mlab.com:39567/sistemaexpertodb",
     "database": "test",
     "password": "sistemaexperto123",
     "name": "SistemaExpertoDB",
